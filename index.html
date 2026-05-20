@@ -235,52 +235,46 @@
     <section id="dados" class="section dados-section" aria-labelledby="dados-title">
       <div class="container">
         <h2 id="dados-title" class="section-title fade-up">Fauna em Números</h2>
-        <p class="section-subtitle fade-up">Dados representativos de ocorrências na Região Metropolitana de Porto Alegre</p>
+        <p class="section-subtitle fade-up">Dados oficiais do SALVE/ICMBio — Lista de Espécies da Fauna Brasileira Ameaçadas de Extinção (2026)</p>
 
         <div class="kpi-row fade-up">
           <div class="kpi-card">
-            <span class="kpi-value" data-target="1247" aria-label="1247 resgates em 2024">0</span>
-            <span class="kpi-label">Resgates em 2024 (RMPA)</span>
+            <span class="kpi-value" data-target="1271" aria-label="1271 espécies ameaçadas">0</span>
+            <span class="kpi-label">Espécies ameaçadas (CR+EN+VU)</span>
           </div>
           <div class="kpi-card">
-            <span class="kpi-value" data-target="38" aria-label="38 espécies atendidas">0</span>
-            <span class="kpi-label">Espécies atendidas</span>
+            <span class="kpi-value" data-target="10" aria-label="10 grupos taxonômicos avaliados">0</span>
+            <span class="kpi-label">Grupos taxonômicos</span>
           </div>
           <div class="kpi-card">
-            <span class="kpi-value" data-target="72" data-suffix="%" aria-label="72 por cento de solturas bem-sucedidas">0</span>
-            <span class="kpi-label">% Solturas bem-sucedidas</span>
+            <span class="kpi-value" data-target="79" data-suffix="%" aria-label="79 por cento de espécies endêmicas do Brasil">0</span>
+            <span class="kpi-label">% Endêmicas do Brasil</span>
           </div>
         </div>
 
         <div class="chart-controls fade-up">
-          <label for="chart-filter">Filtrar por:</label>
-          <select id="chart-filter" class="select-input" aria-label="Filtrar gráfico por grupo taxonômico">
-            <option value="todos">Todos os animais</option>
-            <option value="mamifero">Mamíferos</option>
-            <option value="ave">Aves</option>
-            <option value="reptil">Répteis</option>
-            <option value="anfibio">Anfíbios</option>
-          </select>
-          <label for="year-filter">Ano:</label>
-          <select id="year-filter" class="select-input" aria-label="Filtrar gráfico por ano">
-            <option value="2024">2024</option>
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
+          <label for="chart-filter">Categoria:</label>
+          <select id="chart-filter" class="select-input" aria-label="Filtrar gráficos por categoria de ameaça">
+            <option value="ALL">Espécies Ameaçadas (CR+EN+VU)</option>
+            <option value="CR">Criticamente em Perigo (CR)</option>
+            <option value="EN">Em Perigo (EN)</option>
+            <option value="VU">Vulnerável (VU)</option>
+            <option value="NT">Quase Ameaçada (NT)</option>
           </select>
         </div>
 
         <div class="charts-row fade-up">
           <div class="chart-card">
-            <h3>Ocorrências por Espécie</h3>
-            <canvas id="chart-species" role="img" aria-label="Gráfico de barras mostrando ocorrências por espécie de animal silvestre"></canvas>
+            <h3>Espécies por Categoria de Ameaça</h3>
+            <canvas id="chart-species" role="img" aria-label="Gráfico de barras mostrando número de espécies por categoria de ameaça IUCN"></canvas>
           </div>
           <div class="chart-card">
-            <h3>Distribuição por Grupo</h3>
-            <canvas id="chart-donut" role="img" aria-label="Gráfico de rosca mostrando distribuição por grupo taxonômico"></canvas>
+            <h3>Distribuição por Grupo Taxonômico</h3>
+            <canvas id="chart-donut" role="img" aria-label="Gráfico de rosca mostrando distribuição por grupo taxonômico das espécies ameaçadas"></canvas>
           </div>
           <div class="chart-card chart-card--wide">
-            <h3>Evolução Mensal de Ocorrências (2024)</h3>
-            <canvas id="chart-monthly" role="img" aria-label="Gráfico de linha mostrando evolução mensal de ocorrências em 2024"></canvas>
+            <h3>Espécies Ameaçadas por Bioma</h3>
+            <canvas id="chart-monthly" role="img" aria-label="Gráfico de barras mostrando espécies ameaçadas por bioma brasileiro"></canvas>
           </div>
         </div>
 
@@ -291,7 +285,7 @@
                aria-label="Mapa interativo com pontos de ocorrência de fauna silvestre na Região Metropolitana de Porto Alegre">
           </div>
           <p class="map-caption">
-            Dados representativos para fins educativos. Fontes: SMAMS/POA, IBAMA/RS.
+            Dados de categorias: SALVE/ICMBio (salve.icmbio.gov.br). Mapa de ocorrências: fins educativos, RMPA.
             Clique nos pontos para detalhes.
           </p>
         </div>
