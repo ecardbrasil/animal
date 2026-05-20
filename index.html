@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grupo de extensão acadêmica da Faculdade Dom Bosco de Porto Alegre dedicado à preservação da fauna silvestre e à cultura de paz e não-violência com os animais.">
+  <meta property="og:title" content="Amigos da Vida Animal">
+  <meta property="og:description" content="Cultura de Paz e Preservação da Fauna Silvestre — Faculdade Dom Bosco, Porto Alegre/RS">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#2E7D32">
+  <title>Amigos da Vida Animal — Cultura de Paz e Preservação da Fauna Silvestre</title>
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+  <!-- Skip link -->
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+  <!-- Theme toggle -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema claro/escuro">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </button>
+
+  <!-- Emergency FAB -->
+  <button id="emergency-btn" class="emergency-fab" aria-label="Abrir contatos de emergência para fauna silvestre">
+    <span>🆘</span>
+    <span>Emergência</span>
+  </button>
+
+  <!-- Header -->
+  <header id="site-header" class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#hero" class="logo-link" aria-label="Amigos da Vida Animal — início">
+        <img src="assets/images/logo.png" alt="Amigos da Vida Animal" class="logo"
+             onerror="this.style.display='none'">
+        <span class="logo-text">Amigos da<br>Vida Animal</span>
+      </a>
+      <nav id="main-nav" class="main-nav" aria-label="Navegação principal">
+        <ul class="nav-list" role="list">
+          <li><a href="#sobre"     class="nav-link">Sobre</a></li>
+          <li><a href="#evento"    class="nav-link">Evento</a></li>
+          <li><a href="#biblioteca" class="nav-link">Biblioteca Animal</a></li>
+          <li><a href="#dados"     class="nav-link">Dados</a></li>
+          <li><a href="#faq"       class="nav-link">Dúvidas</a></li>
+          <li><a href="#contatos"  class="nav-link">Contatos</a></li>
+          <li><a href="#apoie"     class="nav-link nav-link--cta">Apoie</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle"
+              aria-label="Abrir menu de navegação"
+              aria-expanded="false"
+              aria-controls="main-nav">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ========== HERO ========== -->
+    <section id="hero" class="hero" aria-label="Início">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-particle" style="left:10%;top:20%;--duration:9s;--delay:0s"></div>
+        <div class="hero-particle" style="left:25%;top:60%;--duration:11s;--delay:1s"></div>
+        <div class="hero-particle" style="left:50%;top:30%;--duration:7s;--delay:2s"></div>
+        <div class="hero-particle" style="left:70%;top:70%;--duration:13s;--delay:0.5s"></div>
+        <div class="hero-particle" style="left:85%;top:15%;--duration:8s;--delay:3s"></div>
+        <div class="hero-particle" style="left:40%;top:80%;--duration:10s;--delay:1.5s"></div>
+      </div>
+      <div class="container hero-content">
+        <img src="assets/images/logo.png" alt="Logo Amigos da Vida Animal — uma mão acolhendo um sagui e uma coruja" class="hero-logo"
+             onerror="this.style.display='none'">
+        <h1 class="hero-title">Amigos da Vida Animal</h1>
+        <p class="hero-tagline">Cultura de Paz e Preservação da Fauna Silvestre</p>
+        <p class="hero-intro">
+          Somos um grupo de extensão acadêmica comprometido com a educação ambiental,
+          a proteção da fauna silvestre e a construção de uma relação mais harmoniosa
+          entre humanos e animais em Porto Alegre e na Região Metropolitana.
+        </p>
+        <div class="hero-actions">
+          <a href="#biblioteca" class="btn btn--white">Conhecer os Animais</a>
+          <a href="#apoie"      class="btn btn--white-outline">Apoiar a ONG</a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">↓</div>
+    </section>
+
+    <!-- ========== SOBRE ========== -->
+    <section id="sobre" class="section" aria-labelledby="sobre-title">
+      <div class="container">
+        <h2 id="sobre-title" class="section-title fade-up">Quem Somos</h2>
+        <div class="sobre-grid">
+          <div class="sobre-text">
+            <p class="fade-up">
+              O <strong>Amigos da Vida Animal</strong> é um grupo de extensão acadêmica da
+              <strong>Faculdade Dom Bosco de Porto Alegre</strong>, nascido da disciplina
+              <em>Projeto Integrador Salesiano — Cultura de Paz e Não-Violência</em>.
+            </p>
+            <p class="fade-up">
+              Nosso símbolo representa nosso compromisso: uma mão que acolhe e protege a
+              fauna silvestre local, simbolizada pelo sagui e pela coruja. Acreditamos que
+              a verdadeira harmonia social só é possível quando reconhecemos o valor de
+              todas as formas de vida.
+            </p>
+            <p class="fade-up">
+              A desinformação e os preconceitos sobre animais silvestres frequentemente
+              resultam em maus-tratos e violência. Queremos mudar essa realidade promovendo
+              conhecimento correto, empatia e respeito à biodiversidade, em sintonia com
+              os princípios de paz defendidos pela UNESCO e com a
+              <strong>Lei nº 9.795/1999</strong> de Educação Ambiental.
+            </p>
+
+            <div class="ods-row fade-up" aria-label="Objetivos de Desenvolvimento Sustentável relacionados">
+              <span class="ods-badge ods-badge--4">ODS 4 — Educação de Qualidade</span>
+              <span class="ods-badge ods-badge--15">ODS 15 — Vida Terrestre</span>
+            </div>
+
+            <h3>Nossa Missão</h3>
+            <ul class="mission-list fade-up">
+              <li>Promover a cultura de paz e não-violência com os animais</li>
+              <li>Desmistificar crenças e preconceitos sobre a fauna silvestre</li>
+              <li>Educar sobre comportamentos corretos diante de animais silvestres</li>
+              <li>Conectar a comunidade com recursos e profissionais de resgate</li>
+              <li>Apoiar a ONG Toca dos Bichos com arrecadação e divulgação</li>
+            </ul>
+          </div>
+
+          <div class="fade-up">
+            <div class="ong-card">
+              <h3>🦎 ONG Toca dos Bichos</h3>
+              <p>
+                Parceira deste projeto, a ONG realiza resgates, reabilitação e soltura
+                de animais silvestres na Região Metropolitana de Porto Alegre.
+              </p>
+              <div class="ong-detail">👩‍⚕️ Coordenação: <strong>Dra. Gleide</strong></div>
+              <div class="ong-detail">📍 Porto Alegre / RS</div>
+              <div style="margin-top: var(--space-6);">
+                <a href="#apoie" class="btn btn--white btn--sm">Como Apoiar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== EVENTO ========== -->
+    <section id="evento" class="section evento-section" aria-labelledby="evento-title">
+      <div class="container">
+        <h2 id="evento-title" class="section-title fade-up">Nossa Ação</h2>
+        <div class="evento-card fade-up">
+          <div class="evento-info">
+            <span class="event-badge">📅 Ação Aberta ao Público</span>
+            <h3>Palestra: Fauna Silvestre, Cultura de Paz e Não-Violência</h3>
+            <p>
+              Uma conversa aberta sobre como conviver de forma segura e respeitosa com os
+              animais silvestres da nossa região. Desmistificaremos mitos, apresentaremos
+              orientações práticas e discutiremos o impacto das nossas ações na biodiversidade.
+            </p>
+            <div class="evento-meta">
+              <div class="evento-meta-item">🏫 Auditório da Faculdade Dom Bosco — Porto Alegre/RS</div>
+              <div class="evento-meta-item">🎓 Faculdade Dom Bosco de Porto Alegre</div>
+              <div class="evento-meta-item">👥 Evento aberto à comunidade acadêmica e ao público geral</div>
+              <div class="evento-meta-item">🎤 Com palestrantes convidados especializados</div>
+              <div class="evento-meta-item">🐾 Arrecadação de ração e itens para ONGs de proteção animal</div>
+            </div>
+            <div style="margin-top: var(--space-8); display: flex; gap: var(--space-3); flex-wrap: wrap;">
+              <a href="#apoie" class="btn btn--white btn--sm">Saiba como contribuir</a>
+              <a href="#contatos" class="btn btn--white-outline btn--sm">Contatos</a>
+            </div>
+          </div>
+          <div class="evento-stats">
+            <div class="evento-stat-card">
+              <span class="evento-stat-value">~80</span>
+              <span class="evento-stat-label">Participantes esperados</span>
+            </div>
+            <div class="evento-stat-card">
+              <span class="evento-stat-value">2</span>
+              <span class="evento-stat-label">ONGs beneficiadas</span>
+            </div>
+            <div class="evento-stat-card">
+              <span class="evento-stat-value">9</span>
+              <span class="evento-stat-label">Integrantes do projeto</span>
+            </div>
+            <div class="evento-stat-card">
+              <span class="evento-stat-value">7+</span>
+              <span class="evento-stat-label">Espécies abordadas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BIBLIOTECA ANIMAL ========== -->
+    <section id="biblioteca" class="section section--alt" aria-labelledby="biblioteca-title">
+      <div class="container">
+        <h2 id="biblioteca-title" class="section-title fade-up">Biblioteca Animal</h2>
+        <p class="section-subtitle fade-up">O que fazer ao encontrar estes animais?</p>
+
+        <div class="library-toolbar fade-up">
+          <div class="search-wrapper">
+            <label for="animal-search" class="sr-only">Buscar animal</label>
+            <input type="search" id="animal-search" class="search-input"
+                   placeholder="Buscar animal..." autocomplete="off" aria-label="Buscar animal na biblioteca">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+          </div>
+          <div class="filter-chips" role="group" aria-label="Filtrar por grupo taxonômico">
+            <button class="chip chip--active" data-filter="todos" aria-pressed="true">Todos</button>
+            <button class="chip" data-filter="mamifero" aria-pressed="false">Mamíferos</button>
+            <button class="chip" data-filter="ave"      aria-pressed="false">Aves</button>
+            <button class="chip" data-filter="reptil"   aria-pressed="false">Répteis</button>
+            <button class="chip" data-filter="anfibio"  aria-pressed="false">Anfíbios</button>
+          </div>
+        </div>
+
+        <div id="animal-grid" class="animal-grid" role="list" aria-live="polite" aria-label="Lista de animais silvestres"></div>
+        <p id="no-results" class="no-results hidden" aria-live="assertive">
+          Nenhum animal encontrado para "<span id="no-results-term"></span>".
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== DADOS ========== -->
+    <section id="dados" class="section dados-section" aria-labelledby="dados-title">
+      <div class="container">
+        <h2 id="dados-title" class="section-title fade-up">Fauna em Números</h2>
+        <p class="section-subtitle fade-up">Dados representativos de ocorrências na Região Metropolitana de Porto Alegre</p>
+
+        <div class="kpi-row fade-up">
+          <div class="kpi-card">
+            <span class="kpi-value" data-target="1247" aria-label="1247 resgates em 2024">0</span>
+            <span class="kpi-label">Resgates em 2024 (RMPA)</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-value" data-target="38" aria-label="38 espécies atendidas">0</span>
+            <span class="kpi-label">Espécies atendidas</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-value" data-target="72" data-suffix="%" aria-label="72 por cento de solturas bem-sucedidas">0</span>
+            <span class="kpi-label">% Solturas bem-sucedidas</span>
+          </div>
+        </div>
+
+        <div class="chart-controls fade-up">
+          <label for="chart-filter">Filtrar por:</label>
+          <select id="chart-filter" class="select-input" aria-label="Filtrar gráfico por grupo taxonômico">
+            <option value="todos">Todos os animais</option>
+            <option value="mamifero">Mamíferos</option>
+            <option value="ave">Aves</option>
+            <option value="reptil">Répteis</option>
+            <option value="anfibio">Anfíbios</option>
+          </select>
+          <label for="year-filter">Ano:</label>
+          <select id="year-filter" class="select-input" aria-label="Filtrar gráfico por ano">
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+          </select>
+        </div>
+
+        <div class="charts-row fade-up">
+          <div class="chart-card">
+            <h3>Ocorrências por Espécie</h3>
+            <canvas id="chart-species" role="img" aria-label="Gráfico de barras mostrando ocorrências por espécie de animal silvestre"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>Distribuição por Grupo</h3>
+            <canvas id="chart-donut" role="img" aria-label="Gráfico de rosca mostrando distribuição por grupo taxonômico"></canvas>
+          </div>
+          <div class="chart-card chart-card--wide">
+            <h3>Evolução Mensal de Ocorrências (2024)</h3>
+            <canvas id="chart-monthly" role="img" aria-label="Gráfico de linha mostrando evolução mensal de ocorrências em 2024"></canvas>
+          </div>
+        </div>
+
+        <div class="map-wrapper fade-up">
+          <h3>Mapa de Ocorrências — RMPA</h3>
+          <div id="occurrence-map" class="occurrence-map"
+               role="img"
+               aria-label="Mapa interativo com pontos de ocorrência de fauna silvestre na Região Metropolitana de Porto Alegre">
+          </div>
+          <p class="map-caption">
+            Dados representativos para fins educativos. Fontes: SMAMS/POA, IBAMA/RS.
+            Clique nos pontos para detalhes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section id="faq" class="section faq-section" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title" class="section-title fade-up">Dúvidas Frequentes</h2>
+        <p class="faq-intro fade-up">Respostas para as perguntas mais comuns sobre fauna silvestre e como agir.</p>
+
+        <div class="accordion fade-up" id="faq-accordion" aria-label="Perguntas frequentes sobre fauna silvestre">
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-1">
+              O que fazer ao encontrar um animal silvestre ferido?
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel" id="faq-1" role="region" aria-labelledby="">
+              <div class="accordion-panel-inner">
+                <p>
+                  <strong>Não toque no animal.</strong> Mantenha distância segura e não tente socorrê-lo por conta própria.
+                  Anote a localização exata e entre em contato imediatamente com o CRAS (Centro de Reabilitação de
+                  Animais Silvestres) da SMAMS, o Corpo de Bombeiros (193) ou a Polícia Ambiental (190).
+                </p>
+                <p>
+                  Profissionais capacitados saberão manipular o animal corretamente, evitando estresse adicional
+                  e risco de transmissão de doenças.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-2">
+              Posso alimentar animais silvestres em parques?
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel" id="faq-2" role="region">
+              <div class="accordion-panel-inner">
+                <p>
+                  <strong>Não.</strong> Alimentar animais silvestres com comida humana é um dos maiores erros que
+                  podemos cometer. Biscoitos, pão, frutas processadas e doces causam doenças metabólicas e
+                  desnutrição nesses animais.
+                </p>
+                <p>
+                  Além disso, os animais passam a depender da oferta humana de alimento, perdendo instintos
+                  naturais e podendo se tornar agressivos em busca de comida. A melhor forma de amar um animal
+                  silvestre é <strong>observá-lo de longe</strong> e deixar que ele encontre seu próprio alimento na natureza.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-3">
+              Encontrei um morcego em casa. O que faço?
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel" id="faq-3" role="region">
+              <div class="accordion-panel-inner">
+                <p>
+                  <strong>Não toque, não tente capturar e não aja por conta própria.</strong> Feche o cômodo onde
+                  o morcego está e acione o CRAS, o Corpo de Bombeiros (193) ou a Vigilância Sanitária para fazer
+                  a remoção de forma segura.
+                </p>
+                <p>
+                  Essa precaução é importante tanto para proteger o animal quanto para evitar eventuais riscos
+                  sanitários às pessoas. Morcegos são fundamentais para o ecossistema — são os maiores
+                  polinizadores noturnos do Brasil.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-4">
+              É legal manter animais silvestres como pets?
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel" id="faq-4" role="region">
+              <div class="accordion-panel-inner">
+                <p>
+                  <strong>Em geral, não.</strong> A Lei de Crimes Ambientais (Lei nº 9.605/98) proíbe a captura,
+                  criação ou manutenção de animais silvestres sem autorização do IBAMA. Quem mantém um animal
+                  silvestre irregularmente pode ser multado e responder criminalmente.
+                </p>
+                <p>
+                  Se você encontrou um animal e está cuidando dele, entre em contato com o IBAMA ou CRAS para
+                  regularizar a situação ou encaminhar o animal para reabilitação.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-5">
+              Como posso ajudar a preservar a fauna silvestre no dia a dia?
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel" id="faq-5" role="region">
+              <div class="accordion-panel-inner">
+                <p>Pequenas ações fazem grande diferença:</p>
+                <p>
+                  • Reduza o uso de venenos e pesticidas em quintais e jardins<br>
+                  • Instale bebedouros com água limpa para pássaros<br>
+                  • Plante árvores e plantas nativas da Mata Atlântica<br>
+                  • Evite soltar fogos de artifício que assustam e machucam animais<br>
+                  • Compartilhe informações corretas sobre fauna silvestre<br>
+                  • Apoie ONGs de proteção animal com doações de ração e materiais
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-6">
+              O gambá é perigoso? Devo afastá-lo de casa?
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel" id="faq-6" role="region">
+              <div class="accordion-panel-inner">
+                <p>
+                  <strong>Não, o gambá é inofensivo e extremamente benéfico!</strong> Ele é imune ao veneno de
+                  cobras e consome até 5.000 carrapatos por semana, sendo um aliado natural no controle de pragas.
+                </p>
+                <p>
+                  Se aparecer em sua casa, respeite sua presença — ele provavelmente está de passagem.
+                  Nunca use veneno para afastá-lo: além de ilegal, prejudica toda a cadeia alimentar local.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== APOIE ========== -->
+    <section id="apoie" class="section apoie-section" aria-labelledby="apoie-title">
+      <div class="container">
+        <h2 id="apoie-title" class="section-title fade-up">Apoie a Toca dos Bichos</h2>
+        <p class="section-subtitle fade-up">
+          Sua participação garante que mais animais silvestres sejam resgatados,
+          reabilitados e devolvidos à natureza.
+        </p>
+        <div class="apoie-grid">
+          <div class="apoie-card fade-up">
+            <span class="apoie-icon">🍽️</span>
+            <h3>Doe Ração e Itens</h3>
+            <p>
+              A ONG Toca dos Bichos precisa de ração para animais, medicamentos, gaiolas
+              de transporte, toalhas velhas e materiais de limpeza. Sua doação chega
+              diretamente a quem cuida desses animais.
+            </p>
+            <a href="#contatos" class="btn btn--primary">Ver como entregar</a>
+          </div>
+          <div class="apoie-card fade-up" style="--delay: 0.1s">
+            <span class="apoie-icon">🤝</span>
+            <h3>Voluntariado</h3>
+            <p>
+              Participe como voluntário em atividades de educação ambiental, eventos
+              de conscientização e ações de divulgação. Toda ajuda é bem-vinda,
+              independente da área de conhecimento.
+            </p>
+            <a href="#contatos" class="btn btn--outline">Quero ser voluntário</a>
+          </div>
+          <div class="apoie-card fade-up" style="--delay: 0.2s">
+            <span class="apoie-icon">📢</span>
+            <h3>Divulgue</h3>
+            <p>
+              Compartilhe nossas informações e ajude a conscientizar mais pessoas.
+              Siga nosso Instagram e espalhe o conhecimento sobre convivência
+              harmoniosa com a fauna silvestre.
+            </p>
+            <div class="social-share-row">
+              <button class="btn-social" data-share="whatsapp" aria-label="Compartilhar no WhatsApp">WhatsApp</button>
+              <a href="https://www.instagram.com/amigos_da_vida_animal/" target="_blank" rel="noopener noreferrer"
+                 class="btn-social" aria-label="Seguir no Instagram">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTATOS ÚTEIS ========== -->
+    <section id="contatos" class="section contatos-section" aria-labelledby="contatos-title">
+      <div class="container">
+        <h2 id="contatos-title" class="section-title fade-up">Contatos Úteis</h2>
+        <p class="section-subtitle fade-up">Números para emergências com fauna silvestre e órgãos ambientais</p>
+
+        <h3 class="contatos-group-title fade-up">🚨 Emergência</h3>
+        <div class="contatos-grid fade-up">
+          <div class="contato-card contato-card--danger">
+            <span class="contato-icon">🚒</span>
+            <div class="contato-info">
+              <div class="contato-name">Corpo de Bombeiros</div>
+              <a href="tel:193" class="contato-number">193</a>
+              <div class="contato-desc">Resgate de animais silvestres</div>
+            </div>
+          </div>
+          <div class="contato-card contato-card--danger">
+            <span class="contato-icon">🚔</span>
+            <div class="contato-info">
+              <div class="contato-name">Polícia Ambiental / PATRAM</div>
+              <a href="tel:190" class="contato-number">190</a>
+              <div class="contato-desc">Crimes e emergências ambientais</div>
+            </div>
+          </div>
+          <div class="contato-card contato-card--danger">
+            <span class="contato-icon">🌿</span>
+            <div class="contato-info">
+              <div class="contato-name">IBAMA — Linha Verde</div>
+              <a href="tel:08006184080" class="contato-number">0800 618 4080</a>
+              <div class="contato-desc">Denúncias ambientais 24h</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="contatos-group-title fade-up">🐾 Fauna Silvestre — Porto Alegre</h3>
+        <div class="contatos-grid fade-up">
+          <div class="contato-card">
+            <span class="contato-icon">🏥</span>
+            <div class="contato-info">
+              <div class="contato-name">CRAS POA — SMAMS</div>
+              <a href="tel:5132897500" class="contato-number">(51) 3289-7500</a>
+              <div class="contato-desc">Centro de Reabilitação de Animais Silvestres</div>
+            </div>
+          </div>
+          <div class="contato-card">
+            <span class="contato-icon">🦎</span>
+            <div class="contato-info">
+              <div class="contato-name">ONG Toca dos Bichos</div>
+              <a href="#" class="contato-number">(51) XXXX-XXXX</a>
+              <div class="contato-desc">Coordenação: Dra. Gleide — em breve</div>
+            </div>
+          </div>
+          <div class="contato-card">
+            <span class="contato-icon">🌳</span>
+            <div class="contato-info">
+              <div class="contato-name">SMAMS — Meio Ambiente POA</div>
+              <a href="tel:5132897500" class="contato-number">(51) 3289-7500</a>
+              <div class="contato-desc">Secretaria Municipal do Meio Ambiente</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="contatos-group-title fade-up">🏛️ Órgãos Estaduais e Federais</h3>
+        <div class="contatos-grid fade-up">
+          <div class="contato-card contato-card--secondary">
+            <span class="contato-icon">🌱</span>
+            <div class="contato-info">
+              <div class="contato-name">SEMA/RS — Meio Ambiente Estadual</div>
+              <a href="tel:5132883500" class="contato-number">(51) 3288-3500</a>
+              <div class="contato-desc">Secretaria do Meio Ambiente e Infra. do RS</div>
+            </div>
+          </div>
+          <div class="contato-card contato-card--secondary">
+            <span class="contato-icon">🦅</span>
+            <div class="contato-info">
+              <div class="contato-name">IBAMA / RS</div>
+              <a href="tel:5132882200" class="contato-number">(51) 3288-2200</a>
+              <div class="contato-desc">Superintendência Regional RS</div>
+            </div>
+          </div>
+          <div class="contato-card contato-card--secondary">
+            <span class="contato-icon">🔬</span>
+            <div class="contato-info">
+              <div class="contato-name">FEPAM — Controle Ambiental RS</div>
+              <a href="tel:5132885000" class="contato-number">(51) 3288-5000</a>
+              <div class="contato-desc">Fundação Estadual de Proteção Ambiental</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="contatos-disclaimer fade-up">
+          ⚠️ <strong>Importante:</strong> Alguns números podem sofrer alterações. Ao encontrar um animal silvestre,
+          acione sempre o Corpo de Bombeiros (193) ou a Polícia Ambiental (190), disponíveis 24 horas.
+          Nunca tente capturar ou manipular o animal sem orientação profissional.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== INSTAGRAM ========== -->
+    <section id="instagram" class="section instagram-section" aria-labelledby="instagram-title">
+      <div class="container">
+        <div class="instagram-header">
+          <h2 id="instagram-title" class="section-title">Siga no Instagram</h2>
+          <p style="color: var(--color-text-muted); max-width: 500px; margin-inline: auto;">
+            Acompanhe nossas publicações sobre fauna silvestre, dicas de convivência e as ações do projeto.
+          </p>
+          <a href="https://www.instagram.com/amigos_da_vida_animal/"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="instagram-follow-btn"
+             aria-label="Seguir @amigos_da_vida_animal no Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            @amigos_da_vida_animal
+          </a>
+        </div>
+
+        <div class="instagram-grid" id="instagram-grid">
+          <!-- Posts embedados via script oficial do Instagram -->
+          <div class="instagram-embed-wrapper">
+            <blockquote class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/amigos_da_vida_animal/"
+              data-instgrm-version="14"
+              style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:260px;padding:0;width:100%;">
+              <div style="padding:16px; text-align:center;">
+                <a href="https://www.instagram.com/amigos_da_vida_animal/" target="_blank" rel="noopener noreferrer"
+                   style="color:#000; font-family: Arial,sans-serif; font-size:14px; font-weight:550; text-decoration:none;">
+                  Ver no Instagram: @amigos_da_vida_animal
+                </a>
+              </div>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/images/logo.png" alt="Amigos da Vida Animal"
+               onerror="this.style.display='none'">
+          <p>
+            Amigos da Vida Animal<br>
+            <em>Cultura de Paz e Preservação da Fauna Silvestre</em>
+          </p>
+          <div class="footer-ods" aria-label="Objetivos de Desenvolvimento Sustentável">
+            <span class="ods-badge ods-badge--4">ODS 4</span>
+            <span class="ods-badge ods-badge--15">ODS 15</span>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Links do rodapé">
+          <a href="#sobre">Sobre</a>
+          <a href="#evento">Evento</a>
+          <a href="#biblioteca">Biblioteca Animal</a>
+          <a href="#dados">Dados</a>
+          <a href="#faq">Dúvidas</a>
+          <a href="#contatos">Contatos Úteis</a>
+          <a href="#apoie">Apoie</a>
+          <a href="https://www.instagram.com/amigos_da_vida_animal/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </nav>
+        <div>
+          <p style="color:rgba(255,255,255,0.7); font-size: var(--text-sm); margin-bottom: var(--space-3);">
+            Em parceria com a<br><strong style="color:#fff;">ONG Toca dos Bichos</strong><br>
+            Coordenação: Dra. Gleide
+          </p>
+          <p style="color:rgba(255,255,255,0.6); font-size: var(--text-sm);">
+            📍 Porto Alegre / RS
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-credits">
+        <h4>Projeto Integrador Salesiano — Cultura de Paz e Não-Violência</h4>
+        <p>
+          <strong style="color:rgba(255,255,255,0.9);">Faculdade Dom Bosco de Porto Alegre</strong>
+          &nbsp;·&nbsp; Orientação: Prof. Renato Ferreira Machado
+        </p>
+        <p style="margin-top: var(--space-2);">
+          <strong style="color:rgba(255,255,255,0.8);">Integrantes:</strong>
+          Guilherme Borges &middot; Kendra Vicente &middot; Larissa de Azevedo Lazzarotti &middot;
+          Larissa Quadros da Silva &middot; Luana Lobo &middot; Marina Essy &middot;
+          Maurício Oliveira &middot; Neusa Cristina Jardim &middot; Vinicius Cardoso
+        </p>
+      </div>
+
+      <p class="footer-copy">
+        &copy; 2025 Amigos da Vida Animal &middot; Conteúdo educativo sem fins lucrativos &middot;
+        Fauna silvestre pertence à natureza — não ao cativeiro.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========== ANIMAL MODAL ========== -->
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true"
+       aria-labelledby="modal-title" tabindex="-1">
+    <div class="modal-content" id="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Fechar detalhes do animal">✕</button>
+      <div id="modal-image-container"></div>
+      <div class="modal-body">
+        <h2 id="modal-title" class="modal-title"></h2>
+        <p id="modal-scientific" class="modal-scientific"></p>
+        <div id="modal-badges" class="animal-card__badges" style="margin-bottom: var(--space-4);"></div>
+        <div id="modal-fun-fact" class="modal-fun-fact"></div>
+        <div id="modal-dos" class="modal-guidance modal-dos"></div>
+        <div id="modal-donts" class="modal-guidance modal-donts"></div>
+        <div id="modal-contacts" class="modal-contacts"></div>
+        <div class="modal-share-row" id="modal-share-row"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== EMERGENCY MODAL ========== -->
+  <div id="emergency-modal" class="modal-overlay emergency-modal" role="dialog"
+       aria-modal="true" aria-labelledby="emergency-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" id="emergency-close" aria-label="Fechar contatos de emergência">✕</button>
+      <div class="emergency-modal-header">
+        <div style="font-size: 3rem;">🆘</div>
+        <h2 id="emergency-title">Encontrou um animal?</h2>
+        <p>Não toque. Acione um profissional imediatamente.</p>
+      </div>
+      <div class="emergency-contact-list" id="emergency-contact-list">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts CDN -->
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script async defer src="//www.instagram.com/embed.js"></script>
+
+  <!-- App entry point -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
