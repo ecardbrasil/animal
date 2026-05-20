@@ -1,15 +1,22 @@
 import { SPECIES_DATA, MONTHLY_DATA, GROUP_DATA } from '../data/stats.js';
 
-const BRAND_COLORS = [
-  '#2E7D32','#0277BD','#F9A825','#558B2F','#01579B',
-  '#E65100','#4527A0','#37474F'
+const ALARM_COLORS = [
+  '#FF4500', '#FF9500', '#FFB800', '#3EDF25',
+  '#00D9FF', '#FF3131', '#7FFF00', '#FF6B00'
 ];
 
 const GROUP_COLORS = {
-  mamifero: '#2E7D32',
-  ave:      '#0277BD',
-  reptil:   '#F9A825',
-  anfibio:  '#558B2F'
+  mamifero: '#FF9500',
+  ave:      '#3EDF25',
+  reptil:   '#00D9FF',
+  anfibio:  '#FF4500'
+};
+
+const GROUP_GLOW = {
+  mamifero: 'rgba(255,149,0,0.3)',
+  ave:      'rgba(62,223,37,0.3)',
+  reptil:   'rgba(0,217,255,0.3)',
+  anfibio:  'rgba(255,69,0,0.3)'
 };
 
 let chartSpecies  = null;
@@ -17,13 +24,29 @@ let chartDonut    = null;
 let chartMonthly  = null;
 let initialized   = false;
 
+function isDark() {
+  return document.documentElement.getAttribute('data-theme') === 'dark';
+}
+
+function getGridColor() {
+  return isDark() ? 'rgba(62,223,37,0.06)' : 'rgba(0,0,0,0.06)';
+}
+
+function getTextColor() {
+  return isDark() ? 'rgba(87,140,76,0.9)' : '#3D6435';
+}
+
+function getTickColor() {
+  return isDark() ? 'rgba(87,140,76,0.7)' : '#4A6B44';
+}
+
 export function initCharts() {
   if (initialized || typeof Chart === 'undefined') return;
   initialized = true;
 
-  Chart.defaults.font.family = "system-ui, -apple-system, sans-serif";
-  Chart.defaults.color = getComputedStyle(document.documentElement)
-    .getPropertyValue('--color-text-muted').trim() || '#5A7A5A';
+  Chart.defaults.font.family = "'DM Sans', 'Helvetica Neue', sans-serif";
+  Chart.defaults.font.size   = 12;
+  Chart.defaults.color       = getTextColor();
 
   buildSpeciesChart();
   buildDonutChart();
@@ -41,23 +64,39 @@ function buildSpeciesChart() {
     options: {
       responsive: true,
       maintainAspectRatio: true,
-      aspectRatio: 1.8,
+      aspectRatio: 1.7,
       plugins: {
         legend: { display: false },
         tooltip: {
+          backgroundColor: isDark() ? '#0A1509' : '#fff',
+          borderColor: isDark() ? 'rgba(62,223,37,0.3)' : 'rgba(0,0,0,0.1)',
+          borderWidth: 1,
+          titleColor: isDark() ? '#C8E8BB' : '#0C1A0B',
+          bodyColor: isDark() ? 'rgba(200,232,187,0.7)' : '#3D6435',
+          padding: 12,
           callbacks: {
-            label: (ctx) => ` ${ctx.parsed.y} ocorrências`
+            label: (ctx) => ` ${ctx.parsed.y} resgates`
           }
         }
       },
       scales: {
         y: {
           beginAtZero: true,
-          grid: { color: 'rgba(0,0,0,0.05)' },
-          ticks: { precision: 0 }
+          grid: { color: getGridColor() },
+          border: { color: getGridColor() },
+          ticks: {
+            precision: 0,
+            color: getTickColor(),
+            font: { size: 11 }
+          }
         },
         x: {
-          grid: { display: false }
+          grid: { display: false },
+          border: { color: getGridColor() },
+          ticks: {
+            color: getTickColor(),
+            font: { size: 11 }
+          }
         }
       }
     }
@@ -76,22 +115,41 @@ function buildDonutChart() {
       datasets: [{
         data: data.values,
         backgroundColor: Object.values(GROUP_COLORS),
-        borderWidth: 2,
-        borderColor: '#fff'
+        borderWidth: isDark() ? 3 : 2,
+        borderColor: isDark() ? '#080F07' : '#fff',
+        hoverBorderWidth: isDark() ? 3 : 2,
+        hoverBorderColor: isDark() ? '#080F07' : '#fff',
       }]
     },
     options: {
       responsive: true,
       maintainAspectRatio: true,
-      aspectRatio: 1.6,
+      aspectRatio: 1.5,
+      cutout: '65%',
       plugins: {
         legend: {
           position: 'bottom',
-          labels: { padding: 16, usePointStyle: true }
+          labels: {
+            padding: 18,
+            usePointStyle: true,
+            pointStyleWidth: 10,
+            color: isDark() ? 'rgba(200,232,187,0.8)' : '#3D6435',
+            font: { size: 12 }
+          }
         },
         tooltip: {
+          backgroundColor: isDark() ? '#0A1509' : '#fff',
+          borderColor: isDark() ? 'rgba(62,223,37,0.3)' : 'rgba(0,0,0,0.1)',
+          borderWidth: 1,
+          titleColor: isDark() ? '#C8E8BB' : '#0C1A0B',
+          bodyColor: isDark() ? 'rgba(200,232,187,0.7)' : '#3D6435',
+          padding: 12,
           callbacks: {
-            label: (ctx) => ` ${ctx.label}: ${ctx.parsed} (${Math.round(ctx.parsed / ctx.dataset.data.reduce((a,b) => a+b,0) * 100)}%)`
+            label: (ctx) => {
+              const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+              const pct = Math.round(ctx.parsed / total * 100);
+              return ` ${ctx.label}: ${ctx.parsed} (${pct}%)`;
+            }
           }
         }
       }
@@ -104,42 +162,97 @@ function buildMonthlyChart() {
   if (!ctx) return;
 
   const data = MONTHLY_DATA['2024'];
+
+  const gradientFill = ctx.createLinearGradient(0, 0, ctx.canvas.offsetWidth, 0);
+  gradientFill.addColorStop(0,   'rgba(62,223,37,0.18)');
+  gradientFill.addColorStop(0.5, 'rgba(255,149,0,0.12)');
+  gradientFill.addColorStop(1,   'rgba(255,69,0,0.18)');
+
+  const gradientStroke = ctx.createLinearGradient(0, 0, ctx.canvas.offsetWidth, 0);
+  gradientStroke.addColorStop(0,   '#3EDF25');
+  gradientStroke.addColorStop(0.6, '#FF9500');
+  gradientStroke.addColorStop(1,   '#FF4500');
+
   chartMonthly = new Chart(ctx, {
     type: 'line',
     data: {
       labels: data.labels,
       datasets: [{
-        label: 'Ocorrências',
+        label: 'Resgates',
         data: data.values,
-        borderColor: '#2E7D32',
-        backgroundColor: 'rgba(46,125,50,0.1)',
-        tension: 0.4,
+        borderColor: gradientStroke,
+        backgroundColor: gradientFill,
+        tension: 0.42,
         fill: true,
-        pointBackgroundColor: '#2E7D32',
-        pointRadius: 4,
-        pointHoverRadius: 6
+        pointBackgroundColor: (ctx) => {
+          const v = ctx.parsed?.y ?? 0;
+          const max = Math.max(...data.values);
+          if (v >= max * 0.9) return '#FF4500';
+          if (v >= max * 0.7) return '#FF9500';
+          return '#3EDF25';
+        },
+        pointBorderColor: isDark() ? '#080F07' : '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 8,
+        pointHoverBackgroundColor: '#FFB800',
       }]
     },
     options: {
       responsive: true,
       maintainAspectRatio: true,
-      aspectRatio: 2.5,
+      aspectRatio: 2.4,
       plugins: {
         legend: { display: false },
         tooltip: {
+          backgroundColor: isDark() ? '#0A1509' : '#fff',
+          borderColor: isDark() ? 'rgba(62,223,37,0.3)' : 'rgba(0,0,0,0.1)',
+          borderWidth: 1,
+          titleColor: isDark() ? '#C8E8BB' : '#0C1A0B',
+          bodyColor: isDark() ? 'rgba(200,232,187,0.7)' : '#3D6435',
+          padding: 12,
           callbacks: {
-            label: (ctx) => ` ${ctx.parsed.y} ocorrências`
+            label: (ctx) => ` ${ctx.parsed.y} resgates registrados`
+          }
+        },
+        annotation: {
+          annotations: {
+            alarmLine: {
+              type: 'line',
+              yMin: 120,
+              yMax: 120,
+              borderColor: 'rgba(255,49,49,0.4)',
+              borderWidth: 1,
+              borderDash: [6, 4],
+              label: {
+                display: true,
+                content: '⚠ nível de alerta',
+                color: 'rgba(255,49,49,0.7)',
+                font: { size: 10 },
+                position: 'end'
+              }
+            }
           }
         }
       },
       scales: {
         y: {
           beginAtZero: false,
-          grid: { color: 'rgba(0,0,0,0.05)' },
-          ticks: { precision: 0 }
+          grid: { color: getGridColor() },
+          border: { color: getGridColor() },
+          ticks: {
+            precision: 0,
+            color: getTickColor(),
+            font: { size: 11 }
+          }
         },
         x: {
-          grid: { display: false }
+          grid: { display: false },
+          border: { color: getGridColor() },
+          ticks: {
+            color: getTickColor(),
+            font: { size: 11 }
+          }
         }
       }
     }
@@ -164,8 +277,7 @@ function bindFilters() {
 
 function updateSpeciesChart(group, year) {
   if (!chartSpecies) return;
-  const newData = speciesChartData(group, year);
-  chartSpecies.data = newData;
+  chartSpecies.data = speciesChartData(group, year);
   chartSpecies.update('active');
 }
 
@@ -187,15 +299,26 @@ function updateMonthlyChart(year) {
 function speciesChartData(group, year) {
   const yearData = SPECIES_DATA.datasets[year] || SPECIES_DATA.datasets['2024'];
   const values   = yearData[group] || yearData['todos'];
+  const maxVal   = Math.max(...values);
+
+  const backgroundColors = values.map(v => {
+    if (v === 0) return 'rgba(62,223,37,0.08)';
+    const ratio = v / maxVal;
+    if (ratio >= 0.85) return '#FF4500';
+    if (ratio >= 0.65) return '#FF9500';
+    if (ratio >= 0.45) return '#FFB800';
+    return '#3EDF25';
+  });
 
   return {
     labels: SPECIES_DATA.labels,
     datasets: [{
-      label: 'Ocorrências',
+      label: 'Resgates',
       data: values,
-      backgroundColor: BRAND_COLORS,
+      backgroundColor: backgroundColors,
       borderRadius: 6,
-      borderSkipped: false
+      borderSkipped: false,
+      borderWidth: 0,
     }]
   };
 }

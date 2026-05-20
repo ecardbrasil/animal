@@ -1,23 +1,34 @@
+/* ============================================
+   AMIGOS DA VIDA ANIMAL — Crisis Design System
+   Dark-first palette: urgency, alarm, impact
+   ============================================ */
+
 :root {
-  --color-primary:       #2E7D32;
-  --color-primary-light: #43A047;
-  --color-primary-dark:  #1B5E20;
-  --color-secondary:     #0277BD;
-  --color-secondary-light:#039BE5;
-  --color-accent:        #F9A825;
-  --color-danger:        #C62828;
+  /* Light mode base (override below for dark) */
+  --color-primary:        #1A9E10;
+  --color-primary-light:  #28CC14;
+  --color-primary-dark:   #0D6808;
+  --color-secondary:      #007BAA;
+  --color-secondary-light:#009BD4;
+  --color-accent:         #E07B00;
+  --color-danger:         #D42020;
+  --color-warning:        #E09A00;
+  --color-crisis:         #C43000;
 
-  --color-bg:            #F9FBF5;
-  --color-surface:       #FFFFFF;
-  --color-surface-alt:   #EFF5EC;
-  --color-border:        #C8E6C9;
-  --color-text:          #1A2A1A;
-  --color-text-muted:    #5A7A5A;
-  --color-error:         #C62828;
-  --color-success:       #2E7D32;
+  --color-bg:             #EEF5E8;
+  --color-surface:        #FFFFFF;
+  --color-surface-alt:    #E3EFD9;
+  --color-surface-card:   #FFFFFF;
+  --color-border:         #B8D4AC;
+  --color-border-vivid:   #8CB87C;
+  --color-text:           #0C1A0B;
+  --color-text-muted:     #3D6435;
+  --color-error:          #D42020;
+  --color-success:        #1A9E10;
 
-  --font-heading: Georgia, 'Times New Roman', serif;
-  --font-body:    system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body:    'DM Sans', 'Helvetica Neue', sans-serif;
+  --font-display: 'Oswald', 'Impact', sans-serif;
 
   --text-xs:   0.75rem;
   --text-sm:   0.875rem;
@@ -51,10 +62,13 @@
   --radius-xl:   24px;
   --radius-full: 9999px;
 
-  --shadow-sm:  0 1px 3px rgba(0,0,0,.08);
-  --shadow-md:  0 4px 12px rgba(0,0,0,.10);
-  --shadow-lg:  0 8px 32px rgba(0,0,0,.14);
-  --shadow-xl:  0 16px 48px rgba(0,0,0,.18);
+  --shadow-sm:  0 1px 3px rgba(0,0,0,.10);
+  --shadow-md:  0 4px 16px rgba(0,0,0,.14);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,.18);
+  --shadow-xl:  0 16px 64px rgba(0,0,0,.24);
+  --glow-green: 0 0 32px rgba(62,223,37,.25);
+  --glow-alarm: 0 0 32px rgba(255,149,0,.25);
+  --glow-red:   0 0 32px rgba(255,49,49,.25);
 
   --transition-fast:   150ms ease;
   --transition-normal: 250ms ease;
@@ -67,15 +81,28 @@
   --z-modal:     900;
 }
 
+/* ============================================
+   DARK MODE (default aesthetic)
+   ============================================ */
 [data-theme="dark"] {
-  --color-bg:           #0D1A0D;
-  --color-surface:      #1A2E1A;
-  --color-surface-alt:  #122012;
-  --color-border:       #2E4D2E;
-  --color-text:         #E8F5E9;
-  --color-text-muted:   #81A881;
-  --color-primary:      #66BB6A;
-  --color-primary-light:#A5D6A7;
-  --color-primary-dark: #43A047;
-  --color-secondary:    #29B6F6;
+  --color-primary:        #3EDF25;
+  --color-primary-light:  #6FFF58;
+  --color-primary-dark:   #24B015;
+  --color-secondary:      #00D9FF;
+  --color-secondary-light:#64EAFF;
+  --color-accent:         #FF9500;
+  --color-danger:         #FF3131;
+  --color-warning:        #FFB800;
+  --color-crisis:         #FF4500;
+
+  --color-bg:             #040906;
+  --color-surface:        #080F07;
+  --color-surface-alt:    #0C1A0B;
+  --color-surface-card:   #0F1E0D;
+  --color-border:         #162614;
+  --color-border-vivid:   #264422;
+  --color-text:           #C8E8BB;
+  --color-text-muted:     #578C4C;
+  --color-error:          #FF3131;
+  --color-success:        #3EDF25;
 }

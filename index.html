@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,12 @@
   <meta property="og:title" content="Amigos da Vida Animal">
   <meta property="og:description" content="Cultura de Paz e Preservação da Fauna Silvestre — Faculdade Dom Bosco, Porto Alegre/RS">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#2E7D32">
+  <meta name="theme-color" content="#040906">
   <title>Amigos da Vida Animal — Cultura de Paz e Preservação da Fauna Silvestre</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
@@ -70,33 +74,115 @@
     <!-- ========== HERO ========== -->
     <section id="hero" class="hero" aria-label="Início">
       <div class="hero-bg" aria-hidden="true">
-        <div class="hero-particle" style="left:10%;top:20%;--duration:9s;--delay:0s"></div>
-        <div class="hero-particle" style="left:25%;top:60%;--duration:11s;--delay:1s"></div>
-        <div class="hero-particle" style="left:50%;top:30%;--duration:7s;--delay:2s"></div>
-        <div class="hero-particle" style="left:70%;top:70%;--duration:13s;--delay:0.5s"></div>
-        <div class="hero-particle" style="left:85%;top:15%;--duration:8s;--delay:3s"></div>
-        <div class="hero-particle" style="left:40%;top:80%;--duration:10s;--delay:1.5s"></div>
+        <div class="hero-particle" style="left:8%;top:75%;--duration:9s;--delay:0s"></div>
+        <div class="hero-particle" style="left:18%;top:55%;--duration:12s;--delay:1.2s"></div>
+        <div class="hero-particle" style="left:32%;top:80%;--duration:8s;--delay:2.5s"></div>
+        <div class="hero-particle" style="left:48%;top:65%;--duration:10s;--delay:0.7s"></div>
+        <div class="hero-particle" style="left:62%;top:70%;--duration:14s;--delay:3.1s"></div>
+        <div class="hero-particle" style="left:75%;top:60%;--duration:9s;--delay:1.8s"></div>
+        <div class="hero-particle" style="left:88%;top:75%;--duration:11s;--delay:0.3s"></div>
+        <div class="hero-particle" style="left:22%;top:40%;--duration:13s;--delay:4s"></div>
+        <div class="hero-particle" style="left:70%;top:45%;--duration:7s;--delay:2s"></div>
+        <div class="hero-particle" style="left:55%;top:85%;--duration:10s;--delay:0.9s"></div>
       </div>
       <div class="container hero-content">
         <img src="assets/images/logo.png" alt="Logo Amigos da Vida Animal — uma mão acolhendo um sagui e uma coruja" class="hero-logo"
              onerror="this.style.display='none'">
-        <h1 class="hero-title">Amigos da Vida Animal</h1>
-        <p class="hero-tagline">Cultura de Paz e Preservação da Fauna Silvestre</p>
+        <h1 class="hero-title">Amigos da<br>Vida Animal</h1>
+        <p class="hero-tagline">Cultura de Paz · Preservação da Fauna Silvestre</p>
         <p class="hero-intro">
-          Somos um grupo de extensão acadêmica comprometido com a educação ambiental,
-          a proteção da fauna silvestre e a construção de uma relação mais harmoniosa
-          entre humanos e animais em Porto Alegre e na Região Metropolitana.
+          Um grupo de extensão acadêmica que une ciência, empatia e ação para
+          proteger a fauna silvestre de Porto Alegre. Porque a biodiversidade
+          não pede licença para desaparecer.
         </p>
         <div class="hero-actions">
-          <a href="#biblioteca" class="btn btn--white">Conhecer os Animais</a>
-          <a href="#apoie"      class="btn btn--white-outline">Apoiar a ONG</a>
+          <a href="#crise"    class="btn btn--primary">Ver os Dados</a>
+          <a href="#apoie"    class="btn btn--white-outline">Apoiar a ONG</a>
         </div>
       </div>
       <div class="hero-scroll" aria-hidden="true">↓</div>
     </section>
 
+    <!-- ========== A CRISE SILENCIOSA ========== -->
+    <section id="crise" class="crise-section" aria-labelledby="crise-title">
+      <div class="container">
+
+        <div class="crise-badge fade-up">
+          <span class="crise-badge-dot" aria-hidden="true"></span>
+          Alerta Ambiental
+        </div>
+
+        <h2 id="crise-title" class="crise-headline fade-up">
+          A Crise<br><span>Silenciosa</span>
+        </h2>
+        <p class="crise-subtitle fade-up">
+          Enquanto você lê isso, um animal silvestre está sofrendo.
+          Os dados revelam uma emergência que poucos enxergam.
+        </p>
+
+        <div class="crise-grid fade-up">
+
+          <!-- Destaque principal -->
+          <div class="crise-stat-main">
+            <div class="crise-number-huge">38<sup>M</sup></div>
+            <p class="crise-stat-label">
+              animais silvestres traficados por ano no Brasil — o maior do mundo
+            </p>
+            <span class="crise-stat-source">Fonte: IBAMA / RENCTAS</span>
+          </div>
+
+          <!-- Grid secundário 2×2 -->
+          <div class="crise-stats-secondary">
+
+            <div class="crise-stat-card crise-stat-card--amber">
+              <div class="crise-number-mid">67%</div>
+              <p class="crise-card-label">
+                das matas originais do Rio Grande do Sul já foram destruídas
+              </p>
+              <span class="crise-card-source">SOS Mata Atlântica, 2023</span>
+            </div>
+
+            <div class="crise-stat-card crise-stat-card--red">
+              <div class="crise-number-mid">208</div>
+              <p class="crise-card-label">
+                espécies de vertebrados ameaçadas de extinção no RS
+              </p>
+              <span class="crise-card-source">SEMA/RS, 2022</span>
+            </div>
+
+            <div class="crise-stat-card crise-stat-card--teal">
+              <div class="crise-number-mid">0,2%</div>
+              <p class="crise-card-label">
+                dos animais vítimas de tráfico sobrevivem ao retorno à natureza
+              </p>
+              <span class="crise-card-source">RENCTAS / IBAMA</span>
+            </div>
+
+            <div class="crise-stat-card crise-stat-card--lime">
+              <div class="crise-number-mid">+34%</div>
+              <p class="crise-card-label">
+                de aumento nos resgates da RMPA nos últimos 3 anos
+              </p>
+              <span class="crise-card-source">SMAMS / POA, 2024</span>
+            </div>
+
+          </div>
+        </div>
+
+        <blockquote class="crise-quote fade-up">
+          <p>
+            "O Brasil abriga a maior diversidade biológica do planeta e, ao mesmo tempo,
+            é o maior mercado clandestino de animais silvestres das Américas. A destruição
+            não faz barulho — ela acontece em silêncio, longe dos olhares."
+          </p>
+          <cite>— RENCTAS, Relatório Nacional sobre o Tráfico de Fauna Silvestre</cite>
+        </blockquote>
+
+      </div>
+    </section>
+
     <!-- ========== SOBRE ========== -->
-    <section id="sobre" class="section" aria-labelledby="sobre-title">
+    <section id="sobre" class="section sobre-section" aria-labelledby="sobre-title">
       <div class="container">
         <h2 id="sobre-title" class="section-title fade-up">Quem Somos</h2>
         <div class="sobre-grid">
@@ -233,22 +319,26 @@
     <section id="dados" class="section dados-section" aria-labelledby="dados-title">
       <div class="container">
         <h2 id="dados-title" class="section-title fade-up">Fauna em Números</h2>
-        <p class="section-subtitle fade-up">Dados representativos de ocorrências na Região Metropolitana de Porto Alegre</p>
+        <p class="section-subtitle fade-up">Dados representativos de ocorrências na Região Metropolitana de Porto Alegre — a realidade local de uma crise global.</p>
 
         <div class="kpi-row fade-up">
           <div class="kpi-card">
             <span class="kpi-value" data-target="1247" aria-label="1247 resgates em 2024">0</span>
-            <span class="kpi-label">Resgates em 2024 (RMPA)</span>
+            <span class="kpi-label">Resgates em 2024 apenas na RMPA</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-value" data-target="38" aria-label="38 espécies atendidas">0</span>
-            <span class="kpi-label">Espécies atendidas</span>
+            <span class="kpi-label">Espécies distintas atendidas</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-value" data-target="72" data-suffix="%" aria-label="72 por cento de solturas bem-sucedidas">0</span>
-            <span class="kpi-label">% Solturas bem-sucedidas</span>
+            <span class="kpi-label">% de solturas bem-sucedidas</span>
           </div>
         </div>
+
+        <p class="dados-context fade-up">
+          ⚠ Estes são os números de <strong>uma única região metropolitana</strong>. No Brasil inteiro, estima-se que mais de <strong>38 milhões de animais silvestres</strong> são capturados ilegalmente por ano — e apenas uma fração chega a ser resgatada.
+        </p>
 
         <div class="chart-controls fade-up">
           <label for="chart-filter">Filtrar por:</label>

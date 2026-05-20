@@ -2,8 +2,7 @@ const STORAGE_KEY = 'ava-theme';
 
 export function initTheme() {
   const saved = localStorage.getItem(STORAGE_KEY);
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = saved || (prefersDark ? 'dark' : 'light');
+  const theme = saved || 'dark';
   applyTheme(theme);
 
   document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
