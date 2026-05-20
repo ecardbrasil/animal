@@ -5,6 +5,21 @@
   .kpi-row {
     grid-template-columns: repeat(3, 1fr);
   }
+  .kpi-row--salve {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kpi-row--groups {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .kpi-row--salve {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .kpi-row--groups {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 /* ≥ 768px: tablets */
@@ -128,6 +143,14 @@
 
   .kpi-row {
     grid-template-columns: 1fr;
+  }
+
+  .kpi-row--salve {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .kpi-row--groups {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .sobre-grid {

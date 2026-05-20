@@ -6,7 +6,7 @@ export const ANIMALS = [
     group: "mamifero",
     riskLevel: "danger",
     emoji: "🦇",
-    image: "assets/images/animals/morcego.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Lyle%27s_flying_fox_2.jpg/640px-Lyle%27s_flying_fox_2.jpg",
     summary: "Não toque. Chame profissionais para remoção segura.",
     dos: [
       "Mantenha distância segura e não entre no cômodo",
@@ -35,7 +35,7 @@ export const ANIMALS = [
     group: "mamifero",
     riskLevel: "caution",
     emoji: "🐒",
-    image: "assets/images/animals/macaco-prego.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Sapajus_nigritus_-_Parque_Estadual_Intervales_-_Sao_Paulo_-_Brazil.jpg/640px-Sapajus_nigritus_-_Parque_Estadual_Intervales_-_Sao_Paulo_-_Brazil.jpg",
     summary: "Não alimente com comida humana. Observe de longe.",
     dos: [
       "Observe da distância — são curiosos e fascinantes",
@@ -62,7 +62,7 @@ export const ANIMALS = [
     group: "mamifero",
     riskLevel: "safe",
     emoji: "🐀",
-    image: "assets/images/animals/gamba.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Didelphis_aurita.jpg/640px-Didelphis_aurita.jpg",
     summary: "Inofensivo e benéfico. Respeite a presença dele.",
     dos: [
       "Respeite sua presença — ele é aliado no controle de pragas",
@@ -88,7 +88,7 @@ export const ANIMALS = [
     group: "ave",
     riskLevel: "safe",
     emoji: "🦉",
-    image: "assets/images/animals/coruja.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Bubo_virginianus_06.jpg/640px-Bubo_virginianus_06.jpg",
     summary: "Controladora natural de roedores. Não perturbe.",
     dos: [
       "Admire de longe — são aves noturnas belíssimas",
@@ -114,7 +114,7 @@ export const ANIMALS = [
     group: "reptil",
     riskLevel: "danger",
     emoji: "🐍",
-    image: "assets/images/animals/jiboia.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Boa_constrictor%2C_Va%C3%A1rzea_Grande.jpg/640px-Boa_constrictor%2C_Va%C3%A1rzea_Grande.jpg",
     summary: "Não é venenosa, mas não manipule. Chame profissionais.",
     dos: [
       "Mantenha distância segura — mínimo de 3 metros",
@@ -142,7 +142,7 @@ export const ANIMALS = [
     group: "anfibio",
     riskLevel: "safe",
     emoji: "🐸",
-    image: "assets/images/animals/sapo.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Rhinella_marina_in_Dar_es_Salaam.jpg/640px-Rhinella_marina_in_Dar_es_Salaam.jpg",
     summary: "Bioindicador ambiental valioso. Deixe no ambiente natural.",
     dos: [
       "Deixe no ambiente natural — ele está no lugar certo",
@@ -168,7 +168,7 @@ export const ANIMALS = [
     group: "ave",
     riskLevel: "caution",
     emoji: "🐦",
-    image: "assets/images/animals/quero-quero.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Vanellus_chilensis_-_Quero-quero.jpg/640px-Vanellus_chilensis_-_Quero-quero.jpg",
     summary: "Ave territorial do RS. Não se aproxime do ninho.",
     dos: [
       "Respeite a distância quando estiver em período reprodutivo",
@@ -186,6 +186,60 @@ export const ANIMALS = [
       { name: "CRAS POA — SMAMS", number: "(51) 3289-7500" }
     ],
     funFact: "O quero-quero é um dos símbolos do Rio Grande do Sul. Ele nidifica diretamente no chão em campos abertos e usa seus gritos alarmantes como defesa do ninho — chegando a afugentar até predadores maiores que ele."
+  },
+  {
+    id: "sagui",
+    name: "Sagui",
+    scientificName: "Callithrix jacchus / C. penicillata",
+    group: "mamifero",
+    riskLevel: "caution",
+    emoji: "🐒",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Common_marmoset_%28Callithrix_jacchus%29.jpg/640px-Common_marmoset_%28Callithrix_jacchus%29.jpg",
+    summary: "Não alimente. Pode transmitir raiva e herpes B.",
+    dos: [
+      "Observe de longe — são encantadores mas selvagens",
+      "Se ferido, contate o CRAS imediatamente",
+      "Preserve áreas verdes que servem de corredor ecológico",
+      "Reporte ao IBAMA se encontrar criação ilegal"
+    ],
+    donts: [
+      "Não alimente — perdem o instinto de sobrevivência",
+      "Não tente capturar ou criar — é crime com pena de 1 a 3 anos",
+      "Não toque com as mãos nuas — podem transmitir raiva e herpes B",
+      "Não confunda com animal doméstico — sofrem em cativeiro"
+    ],
+    contacts: [
+      { name: "CRAS POA — SMAMS", number: "(51) 3289-7500" },
+      { name: "IBAMA Linha Verde", number: "0800 618 4080" }
+    ],
+    funFact: "O sagui é o primata mais comum nas cidades brasileiras. Apesar de fofinhos, são animais selvagens que sofrem enormemente em cativeiro. Um sagui adulto de vida livre pode percorrer até 2 km por dia em busca de alimento."
+  },
+  {
+    id: "gaviao",
+    name: "Gavião-carijó",
+    scientificName: "Rupornis magnirostris",
+    group: "ave",
+    riskLevel: "caution",
+    emoji: "🦅",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Rupornis_magnirostris_-_Roadside_Hawk.jpg/640px-Rupornis_magnirostris_-_Roadside_Hawk.jpg",
+    summary: "Rapinante protegido. Nunca interfira no voo ou ninho.",
+    dos: [
+      "Admire de longe — é o gavião mais comum do Brasil",
+      "Se ferido, embrulhe em pano escuro e chame o CRAS",
+      "Preserve árvores altas para nidificação",
+      "Reduza uso de rodenticidas que envenenam a cadeia alimentar"
+    ],
+    donts: [
+      "Não se aproxime do ninho — os pais podem atacar",
+      "Não tente capturar — é crime federal, multa de R$ 5.000",
+      "Não use rodenticidas — matam os gaviões por bioacumulação",
+      "Não afugente com objetos — são animais protegidos por lei"
+    ],
+    contacts: [
+      { name: "CRAS POA — SMAMS", number: "(51) 3289-7500" },
+      { name: "IBAMA RS", number: "(51) 3288-2200" }
+    ],
+    funFact: "O gavião-carijó é a ave de rapina mais urbana do Brasil. Ele se adaptou perfeitamente às cidades, usando postes e antenas como poleiros de caça. Sua presença indica um ecossistema urbano ainda equilibrado."
   }
 ];
 

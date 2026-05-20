@@ -8,8 +8,9 @@
   <meta property="og:description" content="Cultura de Paz e Preservação da Fauna Silvestre — Faculdade Dom Bosco, Porto Alegre/RS">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#040906">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="assets/images/amigos-da-vida-animal-logo.png">
+  <link rel="shortcut icon" href="assets/images/amigos-da-vida-animal-logo.png">
+  <link rel="apple-touch-icon" href="assets/images/amigos-da-vida-animal-logo.png">
   <title>Amigos da Vida Animal — Cultura de Paz e Preservação da Fauna Silvestre</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,12 +29,6 @@
 
   <!-- Skip link -->
   <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
-
-  <!-- Theme toggle -->
-  <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema claro/escuro">
-    <span class="icon-sun">☀️</span>
-    <span class="icon-moon">🌙</span>
-  </button>
 
   <!-- Emergency FAB -->
   <button id="emergency-btn" class="emergency-fab" aria-label="Abrir contatos de emergência para fauna silvestre">
@@ -75,6 +70,7 @@
 
     <!-- ========== HERO ========== -->
     <section id="hero" class="hero" aria-label="Início">
+      <div class="hero-photo-bg" aria-hidden="true"></div>
       <div class="hero-bg" aria-hidden="true">
         <div class="hero-particle" style="left:8%;top:75%;--duration:9s;--delay:0s"></div>
         <div class="hero-particle" style="left:18%;top:55%;--duration:12s;--delay:1.2s"></div>
@@ -88,22 +84,45 @@
         <div class="hero-particle" style="left:55%;top:85%;--duration:10s;--delay:0.9s"></div>
       </div>
       <div class="container hero-content">
-        <img src="assets/images/amigos-da-vida-animal-logo.png" alt="Logo Amigos da Vida Animal — uma mão acolhendo um sagui e uma coruja" class="hero-logo"
-             onerror="this.style.display='none'">
-        <h1 class="hero-title">Amigos da<br>Vida Animal</h1>
-        <p class="hero-tagline">Cultura de Paz · Preservação da Fauna Silvestre</p>
-        <p class="hero-intro">
-          Um grupo de extensão acadêmica que une ciência, empatia e ação para
-          proteger a fauna silvestre de Porto Alegre. Porque a biodiversidade
-          não pede licença para desaparecer.
+        <p class="hero-eyebrow">
+          <img src="assets/images/56d0b1eba75cbe081233e7b6_logo-faculdade-dom-bosco.svg"
+               alt="Faculdade Dom Bosco"
+               style="height:22px; width:auto; vertical-align:middle; margin-right:8px; filter:brightness(0) invert(1); opacity:0.75;"
+               onerror="this.style.display='none'">
+          Ação Extensionista • Faculdade Dom Bosco
+        </p>
+        <h1 class="hero-title">O Medo Ameaça.<br>O Conhecimento Protege.</h1>
+        <p class="hero-subheadline">
+          A desinformação é um dos maiores perigos para os animais silvestres.
+          Junte-se a nós em uma jornada de educação, desconstrução de mitos
+          e promoção da cultura de paz.
         </p>
         <div class="hero-actions">
-          <a href="#crise"    class="btn btn--primary">Ver os Dados</a>
-          <a href="#apoie"    class="btn btn--white-outline">Apoiar a ONG</a>
+          <a href="#crise"    class="btn btn--primary">Entender a Crise</a>
+          <a href="#apoie"    class="btn btn--white-outline">Como Ajudar</a>
         </div>
       </div>
       <div class="hero-scroll" aria-hidden="true">↓</div>
     </section>
+
+    <!-- ========== WILDLIFE PHOTO STRIP ========== -->
+    <div class="wildlife-strip" aria-hidden="true">
+      <div class="wildlife-strip__track">
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Vanellus_chilensis_-_Quero-quero.jpg/320px-Vanellus_chilensis_-_Quero-quero.jpg" alt="Quero-quero" loading="lazy"></div>
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Boa_constrictor%2C_Va%C3%A1rzea_Grande.jpg/320px-Boa_constrictor%2C_Va%C3%A1rzea_Grande.jpg" alt="Jiboia" loading="lazy"></div>
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Sapajus_nigritus_-_Parque_Estadual_Intervales_-_Sao_Paulo_-_Brazil.jpg/320px-Sapajus_nigritus_-_Parque_Estadual_Intervales_-_Sao_Paulo_-_Brazil.jpg" alt="Macaco-prego" loading="lazy"></div>
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Bubo_virginianus_06.jpg/320px-Bubo_virginianus_06.jpg" alt="Coruja" loading="lazy"></div>
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Common_marmoset_%28Callithrix_jacchus%29.jpg/320px-Common_marmoset_%28Callithrix_jacchus%29.jpg" alt="Sagui" loading="lazy"></div>
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Didelphis_aurita.jpg/320px-Didelphis_aurita.jpg" alt="Gambá" loading="lazy"></div>
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Rupornis_magnirostris_-_Roadside_Hawk.jpg/320px-Rupornis_magnirostris_-_Roadside_Hawk.jpg" alt="Gavião-carijó" loading="lazy"></div>
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Rhinella_marina_in_Dar_es_Salaam.jpg/320px-Rhinella_marina_in_Dar_es_Salaam.jpg" alt="Sapo" loading="lazy"></div>
+        <!-- duplicate for seamless loop -->
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Vanellus_chilensis_-_Quero-quero.jpg/320px-Vanellus_chilensis_-_Quero-quero.jpg" alt="Quero-quero" loading="lazy"></div>
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Boa_constrictor%2C_Va%C3%A1rzea_Grande.jpg/320px-Boa_constrictor%2C_Va%C3%A1rzea_Grande.jpg" alt="Jiboia" loading="lazy"></div>
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Sapajus_nigritus_-_Parque_Estadual_Intervales_-_Sao_Paulo_-_Brazil.jpg/320px-Sapajus_nigritus_-_Parque_Estadual_Intervales_-_Sao_Paulo_-_Brazil.jpg" alt="Macaco-prego" loading="lazy"></div>
+        <div class="wildlife-strip__item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Bubo_virginianus_06.jpg/320px-Bubo_virginianus_06.jpg" alt="Coruja" loading="lazy"></div>
+      </div>
+    </div>
 
     <!-- ========== A CRISE SILENCIOSA ========== -->
     <section id="crise" class="crise-section" aria-labelledby="crise-title">
@@ -126,7 +145,7 @@
 
           <!-- Destaque principal -->
           <div class="crise-stat-main">
-            <div class="crise-number-huge">38<sup>M</sup></div>
+            <div class="crise-number-huge" id="crise-counter-38m" data-target="38000000" aria-label="38 milhões de animais silvestres traficados">0</div>
             <p class="crise-stat-label">
               animais silvestres traficados por ano no Brasil — o maior do mundo
             </p>
@@ -228,15 +247,41 @@
               <img src="assets/images/toca-dos-bichos-logo.png" alt="Logo Toca dos Bichos" class="ong-logo"
                    style="max-width: 120px; margin-bottom: var(--space-4); display: block; margin-left: auto; margin-right: auto;"
                    onerror="this.style.display='none'">
-              <h3>🦎 ONG Toca dos Bichos</h3>
+              <h3>🏥 Clínica Veterinária Toca dos Bichos</h3>
               <p>
-                Parceira deste projeto, a ONG realiza resgates, reabilitação e soltura
-                de animais silvestres na Região Metropolitana de Porto Alegre.
+                Fundada em abril de <strong>1987</strong> na Vila do IAPI, Porto Alegre, foi a
+                <strong>primeira clínica veterinária de Porto Alegre</strong> a atender animais
+                domésticos, exóticos e silvestres. Pioneira como o bairro ecológico onde se localiza.
               </p>
-              <div class="ong-detail">👩‍⚕️ Coordenação: <strong>Dra. Gleide</strong></div>
-              <div class="ong-detail">📍 Porto Alegre / RS</div>
-              <div style="margin-top: var(--space-6);">
-                <a href="#apoie" class="btn btn--white btn--sm">Como Apoiar</a>
+              <p style="font-size: var(--text-sm); margin-top: var(--space-3);">
+                Em 2016 criou o <strong>Núcleo Educacional</strong> e em 2017 institucionalizou o projeto
+                <strong>Voluntários da Fauna</strong> — ONG que reabilita animais silvestres na RMPA.
+              </p>
+              <div class="ong-detail">👩‍⚕️ Fundadoras: <strong>Dras. Gleide Marsicano e Maria do Carmo Both</strong></div>
+              <div class="ong-detail">🦜🐰 Silvestres, exóticos, cães e gatos</div>
+              <div class="ong-detail">📍 Vila do IAPI — Porto Alegre / RS</div>
+              <div class="ong-detail">📱 <a href="tel:5133417664" style="color:inherit;">(51) 3341-7664</a></div>
+              <div style="margin-top: var(--space-4); display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                <a href="https://www.instagram.com/tocanoinsta/" target="_blank" rel="noopener noreferrer" class="btn btn--white btn--sm">Instagram</a>
+                <a href="#apoie" class="btn btn--white-outline btn--sm">Como Apoiar</a>
+              </div>
+            </div>
+
+            <div class="ong-card" style="margin-top: var(--space-6);">
+              <img src="assets/images/voluntarios-da-fauna.png" alt="Logo Voluntários da Fauna" class="ong-logo"
+                   style="max-width: 140px; margin-bottom: var(--space-4); display: block; margin-left: auto; margin-right: auto;"
+                   onerror="this.style.display='none'">
+              <h3>🐯 Voluntários da Fauna</h3>
+              <p>
+                ONG sem fins lucrativos que reabilita animais silvestres. Iniciativa da
+                <strong>Toca dos Bichos</strong>, atua com resgates e reabilitação de fauna silvestre
+                em Porto Alegre e região.
+              </p>
+              <div class="ong-detail">🐍🦜🦧🦝🐰 Fauna silvestre diversificada</div>
+              <div class="ong-detail">📍 Rua Mal. José Inácio da Silva, 404 — POA/RS</div>
+              <div class="ong-detail">💰 Pix doações: <strong>35815847000109</strong></div>
+              <div style="margin-top: var(--space-4);">
+                <a href="https://www.instagram.com/voluntariosdafauna/" target="_blank" rel="noopener noreferrer" class="btn btn--white btn--sm">Instagram</a>
               </div>
             </div>
           </div>
@@ -326,18 +371,68 @@
         <h2 id="dados-title" class="section-title fade-up">Fauna em Números</h2>
         <p class="section-subtitle fade-up">Dados oficiais do SALVE/ICMBio — Lista de Espécies da Fauna Brasileira Ameaçadas de Extinção (2026)</p>
 
-        <div class="kpi-row fade-up">
+        <!-- KPIs SALVE/ICMBio 2026 -->
+        <div class="kpi-row kpi-row--salve fade-up">
           <div class="kpi-card">
-            <span class="kpi-value" data-target="1271" aria-label="1271 espécies ameaçadas">0</span>
-            <span class="kpi-label">Espécies ameaçadas (CR+EN+VU)</span>
+            <span class="kpi-value" data-target="15817" aria-label="15.817 espécies avaliadas">0</span>
+            <span class="kpi-label">Espécies avaliadas</span>
           </div>
           <div class="kpi-card">
-            <span class="kpi-value" data-target="10" aria-label="10 grupos taxonômicos avaliados">0</span>
-            <span class="kpi-label">Grupos taxonômicos</span>
+            <span class="kpi-value" data-target="14678" aria-label="14.678 espécies com ficha publicada">0</span>
+            <span class="kpi-label">Fichas publicadas</span>
           </div>
           <div class="kpi-card">
-            <span class="kpi-value" data-target="79" data-suffix="%" aria-label="79 por cento de espécies endêmicas do Brasil">0</span>
-            <span class="kpi-label">% Endêmicas do Brasil</span>
+            <span class="kpi-value" data-target="1933" aria-label="1.933 especialistas envolvidos">0</span>
+            <span class="kpi-label">Especialistas envolvidos</span>
+          </div>
+          <div class="kpi-card kpi-card--alert">
+            <span class="kpi-value" data-target="1271" aria-label="1.271 espécies em categoria de ameaça">0</span>
+            <span class="kpi-label">Espécies em categoria de ameaça</span>
+          </div>
+        </div>
+
+        <!-- KPIs por grupo taxonômico -->
+        <h3 class="salve-group-title fade-up">Espécies ameaçadas por grupo taxonômico (CR+EN+VU)</h3>
+        <div class="kpi-row kpi-row--groups fade-up">
+          <div class="kpi-card kpi-card--sm">
+            <span class="kpi-value" data-target="58" aria-label="58">0</span>
+            <span class="kpi-label">Anfíbios</span>
+          </div>
+          <div class="kpi-card kpi-card--sm">
+            <span class="kpi-value" data-target="240" aria-label="240">0</span>
+            <span class="kpi-label">Aves</span>
+          </div>
+          <div class="kpi-card kpi-card--sm">
+            <span class="kpi-value" data-target="85" aria-label="85">0</span>
+            <span class="kpi-label">Inv. Água Doce</span>
+          </div>
+          <div class="kpi-card kpi-card--sm">
+            <span class="kpi-value" data-target="22" aria-label="22">0</span>
+            <span class="kpi-label">Inv. Marinhos</span>
+          </div>
+          <div class="kpi-card kpi-card--sm">
+            <span class="kpi-value" data-target="267" aria-label="267">0</span>
+            <span class="kpi-label">Inv. Terrestres</span>
+          </div>
+          <div class="kpi-card kpi-card--sm">
+            <span class="kpi-value" data-target="102" aria-label="102">0</span>
+            <span class="kpi-label">Mamíferos</span>
+          </div>
+          <div class="kpi-card kpi-card--sm">
+            <span class="kpi-value" data-target="255" aria-label="255">0</span>
+            <span class="kpi-label">Peixes Cont.</span>
+          </div>
+          <div class="kpi-card kpi-card--sm">
+            <span class="kpi-value" data-target="54" aria-label="54">0</span>
+            <span class="kpi-label">Peixes Marinhos</span>
+          </div>
+          <div class="kpi-card kpi-card--sm">
+            <span class="kpi-value" data-target="123" aria-label="123">0</span>
+            <span class="kpi-label">Répteis</span>
+          </div>
+          <div class="kpi-card kpi-card--sm">
+            <span class="kpi-value" data-target="65" aria-label="65">0</span>
+            <span class="kpi-label">Tubarões e Raias</span>
           </div>
         </div>
 
@@ -346,9 +441,9 @@
         </p>
 
         <div class="chart-controls fade-up">
-          <label for="chart-filter">Categoria:</label>
+          <label for="chart-filter">Filtrar por categoria de ameaça:</label>
           <select id="chart-filter" class="select-input" aria-label="Filtrar gráficos por categoria de ameaça">
-            <option value="ALL">Espécies Ameaçadas (CR+EN+VU)</option>
+            <option value="ALL">Todas as ameaçadas (CR+EN+VU)</option>
             <option value="CR">Criticamente em Perigo (CR)</option>
             <option value="EN">Em Perigo (EN)</option>
             <option value="VU">Vulnerável (VU)</option>
@@ -358,15 +453,15 @@
 
         <div class="charts-row fade-up">
           <div class="chart-card">
-            <h3>Espécies por Categoria de Ameaça</h3>
-            <canvas id="chart-species" role="img" aria-label="Gráfico de barras mostrando número de espécies por categoria de ameaça IUCN"></canvas>
+            <h3>Espécies Ameaçadas por Grupo <span class="chart-subtitle-badge">SALVE/ICMBio 2026</span></h3>
+            <canvas id="chart-species" role="img" aria-label="Gráfico de barras mostrando espécies ameaçadas por grupo taxonômico — SALVE/ICMBio 2026"></canvas>
           </div>
           <div class="chart-card">
-            <h3>Distribuição por Grupo Taxonômico</h3>
-            <canvas id="chart-donut" role="img" aria-label="Gráfico de rosca mostrando distribuição por grupo taxonômico das espécies ameaçadas"></canvas>
+            <h3>Categorias de Ameaça IUCN <span class="chart-subtitle-badge">SALVE/ICMBio 2026</span></h3>
+            <canvas id="chart-donut" role="img" aria-label="Gráfico de rosca mostrando distribuição das espécies pelas categorias de ameaça IUCN"></canvas>
           </div>
           <div class="chart-card chart-card--wide">
-            <h3>Espécies Ameaçadas por Bioma</h3>
+            <h3>Espécies Ameaçadas por Bioma <span class="chart-subtitle-badge">SALVE/ICMBio 2026</span></h3>
             <canvas id="chart-monthly" role="img" aria-label="Gráfico de barras mostrando espécies ameaçadas por bioma brasileiro"></canvas>
           </div>
         </div>
@@ -380,6 +475,11 @@
           <p class="map-caption">
             Dados de categorias: SALVE/ICMBio (salve.icmbio.gov.br). Mapa de ocorrências: fins educativos, RMPA.
             Clique nos pontos para detalhes.
+          </p>
+          <p class="dados-citation fade-up">
+            <strong>Referência:</strong> ICMBio, 2026. <em>Sistema de Avaliação do Risco de Extinção da Biodiversidade – SALVE</em>.
+            Disponível em: <a href="https://salve.icmbio.gov.br/" target="_blank" rel="noopener noreferrer">https://salve.icmbio.gov.br/</a>.
+            Acesso em: 20 de maio de 2026.
           </p>
         </div>
       </div>
@@ -521,7 +621,7 @@
     <!-- ========== APOIE ========== -->
     <section id="apoie" class="section apoie-section" aria-labelledby="apoie-title">
       <div class="container">
-        <h2 id="apoie-title" class="section-title fade-up">Apoie a Toca dos Bichos</h2>
+        <h2 id="apoie-title" class="section-title fade-up">Apoie a Causa</h2>
         <p class="section-subtitle fade-up">
           Sua participação garante que mais animais silvestres sejam resgatados,
           reabilitados e devolvidos à natureza.
@@ -538,6 +638,18 @@
             <a href="#contatos" class="btn btn--primary">Ver como entregar</a>
           </div>
           <div class="apoie-card fade-up" style="--delay: 0.1s">
+            <span class="apoie-icon">🐯</span>
+            <h3>Doe para os Voluntários da Fauna</h3>
+            <p>
+              ONG sem fins lucrativos que reabilita animais silvestres — iniciativa da Toca dos Bichos.
+              Aceitam doações via Pix para manter a estrutura de reabilitação e cuidados.
+            </p>
+            <div style="background: rgba(255,255,255,0.08); border-radius: 8px; padding: var(--space-3); margin: var(--space-3) 0; font-family: monospace; font-size: var(--text-sm); word-break: break-all;">
+              Pix: <strong>35815847000109</strong>
+            </div>
+            <a href="https://www.instagram.com/voluntariosdafauna/" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Ver no Instagram</a>
+          </div>
+          <div class="apoie-card fade-up" style="--delay: 0.2s">
             <span class="apoie-icon">🤝</span>
             <h3>Voluntariado</h3>
             <p>
@@ -547,12 +659,12 @@
             </p>
             <a href="#contatos" class="btn btn--outline">Quero ser voluntário</a>
           </div>
-          <div class="apoie-card fade-up" style="--delay: 0.2s">
+          <div class="apoie-card fade-up" style="--delay: 0.3s">
             <span class="apoie-icon">📢</span>
             <h3>Divulgue</h3>
             <p>
               Compartilhe nossas informações e ajude a conscientizar mais pessoas.
-              Siga nosso Instagram e espalhe o conhecimento sobre convivência
+              Siga os perfis no Instagram e espalhe o conhecimento sobre convivência
               harmoniosa com a fauna silvestre.
             </p>
             <div class="social-share-row">
@@ -610,11 +722,19 @@
             </div>
           </div>
           <div class="contato-card">
-            <span class="contato-icon">🦎</span>
+            <span class="contato-icon">🏥</span>
             <div class="contato-info">
-              <div class="contato-name">ONG Toca dos Bichos</div>
-              <a href="#" class="contato-number">(51) XXXX-XXXX</a>
-              <div class="contato-desc">Coordenação: Dra. Gleide — em breve</div>
+              <div class="contato-name">Clínica Veterinária Toca dos Bichos</div>
+              <a href="tel:5133417664" class="contato-number">(51) 3341-7664</a>
+              <div class="contato-desc">Consultas, cirurgias, silvestres e exóticos · <a href="https://www.instagram.com/tocanoinsta/" target="_blank" rel="noopener noreferrer" style="color:inherit;">@tocanoinsta</a></div>
+            </div>
+          </div>
+          <div class="contato-card">
+            <span class="contato-icon">🐯</span>
+            <div class="contato-info">
+              <div class="contato-name">Voluntários da Fauna</div>
+              <span class="contato-number" style="font-size:var(--text-sm);">Pix: 35815847000109</span>
+              <div class="contato-desc">ONG reabilitação silvestre · iniciativa @tocanoinsta · <a href="https://www.instagram.com/voluntariosdafauna/" target="_blank" rel="noopener noreferrer" style="color:inherit;">@voluntariosdafauna</a></div>
             </div>
           </div>
           <div class="contato-card">
@@ -668,24 +788,37 @@
       <div class="container">
         <div class="instagram-header">
           <h2 id="instagram-title" class="section-title">Siga no Instagram</h2>
-          <p style="color: var(--color-text-muted); max-width: 500px; margin-inline: auto;">
-            Acompanhe nossas publicações sobre fauna silvestre, dicas de convivência e as ações do projeto.
+          <p style="color: var(--color-text-muted); max-width: 600px; margin-inline: auto;">
+            Acompanhe nossas publicações e os perfis dos nossos parceiros sobre fauna silvestre e proteção animal.
           </p>
-          <a href="https://www.instagram.com/amigos_da_vida_animal/"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="instagram-follow-btn"
-             aria-label="Seguir @amigos_da_vida_animal no Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
+        </div>
+
+        <!-- Perfis para seguir -->
+        <div class="instagram-profiles-row fade-up" style="display:flex; gap:var(--space-4); flex-wrap:wrap; justify-content:center; margin-bottom:var(--space-10);">
+          <a href="https://www.instagram.com/amigos_da_vida_animal/" target="_blank" rel="noopener noreferrer"
+             class="instagram-follow-btn" aria-label="Seguir @amigos_da_vida_animal no Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             @amigos_da_vida_animal
+          </a>
+          <a href="https://www.instagram.com/tocanoinsta/" target="_blank" rel="noopener noreferrer"
+             class="instagram-follow-btn" aria-label="Seguir @tocanoinsta no Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @tocanoinsta
+          </a>
+          <a href="https://www.instagram.com/voluntariosdafauna/" target="_blank" rel="noopener noreferrer"
+             class="instagram-follow-btn" aria-label="Seguir @voluntariosdafauna no Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @voluntariosdafauna
           </a>
         </div>
 
-        <div class="instagram-grid" id="instagram-grid">
-          <!-- Posts embedados via script oficial do Instagram -->
+        <!-- Embeds lado a lado -->
+        <div class="instagram-grid fade-up" id="instagram-grid"
+             style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:var(--space-6); align-items:start;">
+
+          <!-- Amigos da Vida Animal -->
           <div class="instagram-embed-wrapper">
+            <p style="text-align:center; font-weight:600; margin-bottom:var(--space-3); color:var(--color-text-muted); font-size:var(--text-sm); text-transform:uppercase; letter-spacing:0.05em;">Amigos da Vida Animal</p>
             <blockquote class="instagram-media"
               data-instgrm-permalink="https://www.instagram.com/amigos_da_vida_animal/"
               data-instgrm-version="14"
@@ -698,6 +831,39 @@
               </div>
             </blockquote>
           </div>
+
+          <!-- Toca dos Bichos -->
+          <div class="instagram-embed-wrapper">
+            <p style="text-align:center; font-weight:600; margin-bottom:var(--space-3); color:var(--color-text-muted); font-size:var(--text-sm); text-transform:uppercase; letter-spacing:0.05em;">Clínica Toca dos Bichos</p>
+            <blockquote class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/tocanoinsta/"
+              data-instgrm-version="14"
+              style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:260px;padding:0;width:100%;">
+              <div style="padding:16px; text-align:center;">
+                <a href="https://www.instagram.com/tocanoinsta/" target="_blank" rel="noopener noreferrer"
+                   style="color:#000; font-family: Arial,sans-serif; font-size:14px; font-weight:550; text-decoration:none;">
+                  Ver no Instagram: @tocanoinsta
+                </a>
+              </div>
+            </blockquote>
+          </div>
+
+          <!-- Voluntários da Fauna -->
+          <div class="instagram-embed-wrapper">
+            <p style="text-align:center; font-weight:600; margin-bottom:var(--space-3); color:var(--color-text-muted); font-size:var(--text-sm); text-transform:uppercase; letter-spacing:0.05em;">Voluntários da Fauna</p>
+            <blockquote class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/voluntariosdafauna/"
+              data-instgrm-version="14"
+              style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:260px;padding:0;width:100%;">
+              <div style="padding:16px; text-align:center;">
+                <a href="https://www.instagram.com/voluntariosdafauna/" target="_blank" rel="noopener noreferrer"
+                   style="color:#000; font-family: Arial,sans-serif; font-size:14px; font-weight:550; text-decoration:none;">
+                  Ver no Instagram: @voluntariosdafauna
+                </a>
+              </div>
+            </blockquote>
+          </div>
+
         </div>
       </div>
     </section>
@@ -732,16 +898,29 @@
         </nav>
         <div>
           <p style="color:rgba(255,255,255,0.7); font-size: var(--text-sm); margin-bottom: var(--space-3);">
-            Em parceria com a<br><strong style="color:#fff;">ONG Toca dos Bichos</strong><br>
-            Coordenação: Dra. Gleide
+            Em parceria com a<br><strong style="color:#fff;">Clínica Veterinária Toca dos Bichos</strong><br>
+            Fundadoras: Dras. Gleide Marsicano e Maria do Carmo Both<br>
+            Desde 1987 — pioneira em silvestres e exóticos
+          </p>
+          <p style="color:rgba(255,255,255,0.6); font-size: var(--text-sm); margin-bottom: var(--space-2);">
+            📍 Vila do IAPI — Porto Alegre / RS<br>
+            📱 <a href="tel:5133417664" style="color:rgba(255,255,255,0.6);">(51) 3341-7664</a>
           </p>
           <p style="color:rgba(255,255,255,0.6); font-size: var(--text-sm);">
-            📍 Porto Alegre / RS
+            <a href="https://www.instagram.com/tocanoinsta/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);">@tocanoinsta</a>
+            &nbsp;·&nbsp;
+            <a href="https://www.instagram.com/voluntariosdafauna/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);">@voluntariosdafauna</a>
           </p>
         </div>
       </div>
 
       <div class="footer-credits">
+        <div style="display:flex; align-items:center; justify-content:center; gap:var(--space-4); margin-bottom:var(--space-4); flex-wrap:wrap;">
+          <img src="assets/images/56d0b1eba75cbe081233e7b6_logo-faculdade-dom-bosco.svg"
+               alt="Faculdade Dom Bosco de Porto Alegre"
+               style="height:48px; width:auto; filter:brightness(0) invert(1); opacity:0.85;"
+               onerror="this.style.display='none'">
+        </div>
         <h4>Projeto Integrador Salesiano — Cultura de Paz e Não-Violência</h4>
         <p>
           <strong style="color:rgba(255,255,255,0.9);">Faculdade Dom Bosco de Porto Alegre</strong>
@@ -781,19 +960,20 @@
     </div>
   </div>
 
-  <!-- ========== EMERGENCY MODAL ========== -->
+  <!-- ========== EMERGENCY CHATBOT MODAL ========== -->
   <div id="emergency-modal" class="modal-overlay emergency-modal" role="dialog"
        aria-modal="true" aria-labelledby="emergency-title" tabindex="-1">
-    <div class="modal-content">
-      <button class="modal-close" id="emergency-close" aria-label="Fechar contatos de emergência">✕</button>
-      <div class="emergency-modal-header">
-        <div style="font-size: 3rem;">🆘</div>
-        <h2 id="emergency-title">Encontrou um animal?</h2>
-        <p>Não toque. Acione um profissional imediatamente.</p>
+    <div class="modal-content chatbot-modal-content">
+      <button class="modal-close" id="emergency-close" aria-label="Fechar orientações de emergência">✕</button>
+      <div class="chatbot-header">
+        <div class="chatbot-header-icon">🆘</div>
+        <div>
+          <h2 id="emergency-title" class="chatbot-title">Emergência Animal</h2>
+          <p class="chatbot-subtitle">Orientação rápida — Porto Alegre</p>
+        </div>
       </div>
-      <div class="emergency-contact-list" id="emergency-contact-list">
-        <!-- Populated by JS -->
-      </div>
+      <div class="chatbot-messages" id="chatbot-messages" aria-live="polite" aria-label="Mensagens do assistente de emergência"></div>
+      <div class="chatbot-options" id="chatbot-options" role="group" aria-label="Opções de resposta"></div>
     </div>
   </div>
 

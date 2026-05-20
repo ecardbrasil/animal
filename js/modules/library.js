@@ -43,11 +43,12 @@ function renderCards(animals) {
 
   grid.innerHTML = animals.map((a, i) => {
     const hasImage = a.image;
-    const imageHtml = hasImage
+    const imageHtml = `<div class="animal-card__image-wrapper">${hasImage
       ? `<img class="animal-card__image" src="${a.image}" alt="${a.name} — ${a.scientificName}" loading="lazy"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
          <div class="animal-card__image-placeholder" style="display:none;">${a.emoji}</div>`
-      : `<div class="animal-card__image-placeholder">${a.emoji}</div>`;
+      : `<div class="animal-card__image-placeholder">${a.emoji}</div>`
+    }</div>`;
 
     return `
       <article class="animal-card"

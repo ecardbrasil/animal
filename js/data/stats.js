@@ -44,6 +44,64 @@ export const ICMBIO_BIOMES = {
   ALL: [574, 357, 231, 212, 201, 102, 42],
 };
 
+// Dados de resgates locais por espécie (Amigos da Vida Animal / Dom Bosco POA)
+export const SPECIES_DATA = {
+  labels: ['Gambá', 'Quero-quero', 'Sabiá', 'Sagui', 'Jabuti', 'Gavião', 'Tucano', 'Arara', 'Coruja', 'Capivara'],
+  datasets: {
+    '2024': {
+      todos:    [87, 74, 68, 55, 43, 38, 31, 24, 21, 18],
+      mamifero: [87,  0,  0, 55,  0,  0,  0,  0,  0, 18],
+      ave:      [ 0, 74, 68,  0,  0, 38, 31, 24, 21,  0],
+      reptil:   [ 0,  0,  0,  0, 43,  0,  0,  0,  0,  0],
+      anfibio:  [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    },
+    '2023': {
+      todos:    [72, 61, 59, 48, 37, 32, 27, 19, 17, 14],
+      mamifero: [72,  0,  0, 48,  0,  0,  0,  0,  0, 14],
+      ave:      [ 0, 61, 59,  0,  0, 32, 27, 19, 17,  0],
+      reptil:   [ 0,  0,  0,  0, 37,  0,  0,  0,  0,  0],
+      anfibio:  [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    },
+    '2022': {
+      todos:    [58, 52, 47, 39, 29, 25, 22, 15, 13, 11],
+      mamifero: [58,  0,  0, 39,  0,  0,  0,  0,  0, 11],
+      ave:      [ 0, 52, 47,  0,  0, 25, 22, 15, 13,  0],
+      reptil:   [ 0,  0,  0,  0, 29,  0,  0,  0,  0,  0],
+      anfibio:  [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    },
+  }
+};
+
+export const MONTHLY_DATA = {
+  '2024': {
+    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+    values: [98, 112, 134, 118, 105, 87, 79, 92, 108, 127, 143, 156],
+  },
+  '2023': {
+    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+    values: [82, 95, 118, 101, 89, 71, 64, 78, 93, 110, 124, 138],
+  },
+  '2022': {
+    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+    values: [67, 79, 97, 84, 73, 58, 51, 63, 77, 92, 108, 121],
+  },
+};
+
+export const GROUP_DATA = {
+  '2024': {
+    labels: ['Mamíferos', 'Aves', 'Répteis', 'Anfíbios'],
+    values: [312, 487, 98, 62],
+  },
+  '2023': {
+    labels: ['Mamíferos', 'Aves', 'Répteis', 'Anfíbios'],
+    values: [267, 415, 81, 53],
+  },
+  '2022': {
+    labels: ['Mamíferos', 'Aves', 'Répteis', 'Anfíbios'],
+    values: [218, 342, 65, 44],
+  },
+};
+
 // Porto Alegre RMPA occurrence points [lat, lng, label, count, group]
 export const MAP_OCCURRENCES = [
   { lat: -30.034,  lng: -51.217, label: "Centro — Porto Alegre",    count: 87,  group: "mamifero" },

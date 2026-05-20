@@ -1,4 +1,3 @@
-import { initTheme }     from './modules/theme.js';
 import { initEmergency } from './modules/emergency.js';
 import { initLibrary }   from './modules/library.js';
 import { initCharts }    from './modules/charts.js';
@@ -6,7 +5,6 @@ import { initMap }       from './modules/map.js';
 import { animateCounter } from './utils/helpers.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
   initEmergency();
   initMobileNav();
   initHeaderScroll();
@@ -123,6 +121,19 @@ function initKPICounters() {
   }, { threshold: 0.5 });
 
   document.querySelectorAll('.kpi-value').forEach(el => observer.observe(el));
+
+  // Big 38M counter in crise section
+  const criseCounter = document.getElementById('crise-counter-38m');
+  if (criseCounter) {
+    const criseObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        animateCounter(criseCounter, 38000000, 2400, '');
+        criseObserver.unobserve(criseCounter);
+      });
+    }, { threshold: 0.4 });
+    criseObserver.observe(criseCounter);
+  }
 }
 
 function initLazyDataSection() {

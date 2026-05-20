@@ -48,6 +48,76 @@
 }
 
 /* ============================================
+   WILDLIFE PHOTO STRIP
+   ============================================ */
+.wildlife-strip {
+  overflow: hidden;
+  background: #020604;
+  border-top: 1px solid rgba(62,223,37,0.08);
+  border-bottom: 1px solid rgba(62,223,37,0.08);
+  position: relative;
+}
+
+.wildlife-strip::before,
+.wildlife-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.wildlife-strip::before {
+  left: 0;
+  background: linear-gradient(to right, #020604, transparent);
+}
+
+.wildlife-strip::after {
+  right: 0;
+  background: linear-gradient(to left, #020604, transparent);
+}
+
+.wildlife-strip__track {
+  display: flex;
+  gap: 4px;
+  animation: strip-scroll 40s linear infinite;
+  width: max-content;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wildlife-strip__track {
+    animation: none;
+  }
+}
+
+@keyframes strip-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.wildlife-strip__item {
+  flex-shrink: 0;
+  width: 200px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.wildlife-strip__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.7) brightness(0.8);
+  transition: filter 0.3s ease;
+}
+
+.wildlife-strip__item:hover img {
+  filter: saturate(1) brightness(1);
+}
+
+/* ============================================
    CRISE SILENCIOSA SECTION
    ============================================ */
 .crise-section {
@@ -169,7 +239,7 @@
 
 .crise-number-huge {
   font-family: var(--font-display);
-  font-size: clamp(5rem, 12vw, 9rem);
+  font-size: clamp(2.8rem, 8vw, 6.5rem);
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -0.02em;
@@ -592,6 +662,18 @@
   box-shadow: var(--shadow-lg);
   position: relative;
   overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.ong-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl, 0 20px 60px rgba(0,0,0,0.4));
+}
+
+.ong-logo {
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.08);
+  padding: var(--space-2);
 }
 
 [data-theme="dark"] .ong-card {

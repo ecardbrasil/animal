@@ -1,23 +1,4 @@
-import { SPECIES_DATA, MONTHLY_DATA, GROUP_DATA } from '../data/stats.js';
-
-const ALARM_COLORS = [
-  '#FF4500', '#FF9500', '#FFB800', '#3EDF25',
-  '#00D9FF', '#FF3131', '#7FFF00', '#FF6B00'
-];
-
-const GROUP_COLORS = {
-  mamifero: '#FF9500',
-  ave:      '#3EDF25',
-  reptil:   '#00D9FF',
-  anfibio:  '#FF4500'
-};
-
-const GROUP_GLOW = {
-  mamifero: 'rgba(255,149,0,0.3)',
-  ave:      'rgba(62,223,37,0.3)',
-  reptil:   'rgba(0,217,255,0.3)',
-  anfibio:  'rgba(255,69,0,0.3)'
-};
+import { ICMBIO_CATEGORIES, ICMBIO_GROUPS, ICMBIO_BIOMES } from '../data/stats.js';
 
 let chartSpecies  = null;
 let chartDonut    = null;
@@ -48,19 +29,20 @@ export function initCharts() {
   Chart.defaults.font.size   = 12;
   Chart.defaults.color       = getTextColor();
 
-  buildSpeciesChart();
-  buildDonutChart();
-  buildMonthlyChart();
+  buildGroupsChart();
+  buildCategoriesDonut();
+  buildBiomesChart();
   bindFilters();
 }
 
-function buildSpeciesChart() {
+// Bar chart: threatened species per taxonomic group
+function buildGroupsChart() {
   const ctx = document.getElementById('chart-species')?.getContext('2d');
   if (!ctx) return;
 
   chartSpecies = new Chart(ctx, {
     type: 'bar',
-    data: speciesChartData('todos', '2024'),
+    data: groupChartData('ALL'),
     options: {
       responsive: true,
       maintainAspectRatio: true,
@@ -75,7 +57,7 @@ function buildSpeciesChart() {
           bodyColor: isDark() ? 'rgba(200,232,187,0.7)' : '#3D6435',
           padding: 12,
           callbacks: {
-            label: (ctx) => ` ${ctx.parsed.y} resgates`
+            label: (ctx) => ` ${ctx.parsed.y} espécies`
           }
         }
       },
@@ -84,18 +66,16 @@ function buildSpeciesChart() {
           beginAtZero: true,
           grid: { color: getGridColor() },
           border: { color: getGridColor() },
-          ticks: {
-            precision: 0,
-            color: getTickColor(),
-            font: { size: 11 }
-          }
+          ticks: { precision: 0, color: getTickColor(), font: { size: 11 } }
         },
         x: {
           grid: { display: false },
           border: { color: getGridColor() },
           ticks: {
             color: getTickColor(),
-            font: { size: 11 }
+            font: { size: 10 },
+            maxRotation: 35,
+            minRotation: 20,
           }
         }
       }
@@ -103,18 +83,18 @@ function buildSpeciesChart() {
   });
 }
 
-function buildDonutChart() {
+// Donut chart: IUCN threat categories
+function buildCategoriesDonut() {
   const ctx = document.getElementById('chart-donut')?.getContext('2d');
   if (!ctx) return;
 
-  const data = GROUP_DATA['2024'];
   chartDonut = new Chart(ctx, {
     type: 'doughnut',
     data: {
-      labels: data.labels,
+      labels: ICMBIO_CATEGORIES.labels,
       datasets: [{
-        data: data.values,
-        backgroundColor: Object.values(GROUP_COLORS),
+        data: ICMBIO_CATEGORIES.values,
+        backgroundColor: ICMBIO_CATEGORIES.colors,
         borderWidth: isDark() ? 3 : 2,
         borderColor: isDark() ? '#080F07' : '#fff',
         hoverBorderWidth: isDark() ? 3 : 2,
@@ -130,11 +110,11 @@ function buildDonutChart() {
         legend: {
           position: 'bottom',
           labels: {
-            padding: 18,
+            padding: 14,
             usePointStyle: true,
             pointStyleWidth: 10,
             color: isDark() ? 'rgba(200,232,187,0.8)' : '#3D6435',
-            font: { size: 12 }
+            font: { size: 11 }
           }
         },
         tooltip: {
@@ -147,7 +127,7 @@ function buildDonutChart() {
           callbacks: {
             label: (ctx) => {
               const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
-              const pct = Math.round(ctx.parsed / total * 100);
+              const pct = ((ctx.parsed / total) * 100).toFixed(1);
               return ` ${ctx.label}: ${ctx.parsed} (${pct}%)`;
             }
           }
@@ -157,47 +137,14 @@ function buildDonutChart() {
   });
 }
 
-function buildMonthlyChart() {
+// Bar chart: threatened species per biome
+function buildBiomesChart() {
   const ctx = document.getElementById('chart-monthly')?.getContext('2d');
   if (!ctx) return;
 
-  const data = MONTHLY_DATA['2024'];
-
-  const gradientFill = ctx.createLinearGradient(0, 0, ctx.canvas.offsetWidth, 0);
-  gradientFill.addColorStop(0,   'rgba(62,223,37,0.18)');
-  gradientFill.addColorStop(0.5, 'rgba(255,149,0,0.12)');
-  gradientFill.addColorStop(1,   'rgba(255,69,0,0.18)');
-
-  const gradientStroke = ctx.createLinearGradient(0, 0, ctx.canvas.offsetWidth, 0);
-  gradientStroke.addColorStop(0,   '#3EDF25');
-  gradientStroke.addColorStop(0.6, '#FF9500');
-  gradientStroke.addColorStop(1,   '#FF4500');
-
   chartMonthly = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: data.labels,
-      datasets: [{
-        label: 'Resgates',
-        data: data.values,
-        borderColor: gradientStroke,
-        backgroundColor: gradientFill,
-        tension: 0.42,
-        fill: true,
-        pointBackgroundColor: (ctx) => {
-          const v = ctx.parsed?.y ?? 0;
-          const max = Math.max(...data.values);
-          if (v >= max * 0.9) return '#FF4500';
-          if (v >= max * 0.7) return '#FF9500';
-          return '#3EDF25';
-        },
-        pointBorderColor: isDark() ? '#080F07' : '#fff',
-        pointBorderWidth: 2,
-        pointRadius: 5,
-        pointHoverRadius: 8,
-        pointHoverBackgroundColor: '#FFB800',
-      }]
-    },
+    type: 'bar',
+    data: biomesChartData('ALL'),
     options: {
       responsive: true,
       maintainAspectRatio: true,
@@ -212,47 +159,21 @@ function buildMonthlyChart() {
           bodyColor: isDark() ? 'rgba(200,232,187,0.7)' : '#3D6435',
           padding: 12,
           callbacks: {
-            label: (ctx) => ` ${ctx.parsed.y} resgates registrados`
-          }
-        },
-        annotation: {
-          annotations: {
-            alarmLine: {
-              type: 'line',
-              yMin: 120,
-              yMax: 120,
-              borderColor: 'rgba(255,49,49,0.4)',
-              borderWidth: 1,
-              borderDash: [6, 4],
-              label: {
-                display: true,
-                content: '⚠ nível de alerta',
-                color: 'rgba(255,49,49,0.7)',
-                font: { size: 10 },
-                position: 'end'
-              }
-            }
+            label: (ctx) => ` ${ctx.parsed.y} espécies ameaçadas`
           }
         }
       },
       scales: {
         y: {
-          beginAtZero: false,
+          beginAtZero: true,
           grid: { color: getGridColor() },
           border: { color: getGridColor() },
-          ticks: {
-            precision: 0,
-            color: getTickColor(),
-            font: { size: 11 }
-          }
+          ticks: { precision: 0, color: getTickColor(), font: { size: 11 } }
         },
         x: {
           grid: { display: false },
           border: { color: getGridColor() },
-          ticks: {
-            color: getTickColor(),
-            font: { size: 11 }
-          }
+          ticks: { color: getTickColor(), font: { size: 11 } }
         }
       }
     }
@@ -261,47 +182,30 @@ function buildMonthlyChart() {
 
 function bindFilters() {
   const groupSelect = document.getElementById('chart-filter');
-  const yearSelect  = document.getElementById('year-filter');
-
-  const update = () => {
-    const group = groupSelect?.value || 'todos';
-    const year  = yearSelect?.value  || '2024';
-    updateSpeciesChart(group, year);
-    updateDonutChart(year);
-    updateMonthlyChart(year);
-  };
-
-  groupSelect?.addEventListener('change', update);
-  yearSelect?.addEventListener('change', update);
+  groupSelect?.addEventListener('change', () => {
+    const cat = groupSelect.value || 'ALL';
+    updateGroupsChart(cat);
+    updateBiomesChart(cat);
+  });
 }
 
-function updateSpeciesChart(group, year) {
+function updateGroupsChart(cat) {
   if (!chartSpecies) return;
-  chartSpecies.data = speciesChartData(group, year);
+  chartSpecies.data = groupChartData(cat);
   chartSpecies.update('active');
 }
 
-function updateDonutChart(year) {
-  if (!chartDonut) return;
-  const data = GROUP_DATA[year] || GROUP_DATA['2024'];
-  chartDonut.data.datasets[0].data = data.values;
-  chartDonut.update('active');
-}
-
-function updateMonthlyChart(year) {
+function updateBiomesChart(cat) {
   if (!chartMonthly) return;
-  const data = MONTHLY_DATA[year] || MONTHLY_DATA['2024'];
-  chartMonthly.data.labels = data.labels;
-  chartMonthly.data.datasets[0].data = data.values;
+  chartMonthly.data = biomesChartData(cat);
   chartMonthly.update('active');
 }
 
-function speciesChartData(group, year) {
-  const yearData = SPECIES_DATA.datasets[year] || SPECIES_DATA.datasets['2024'];
-  const values   = yearData[group] || yearData['todos'];
-  const maxVal   = Math.max(...values);
+function groupChartData(cat) {
+  const values = ICMBIO_GROUPS[cat] || ICMBIO_GROUPS['ALL'];
+  const maxVal  = Math.max(...values);
 
-  const backgroundColors = values.map(v => {
+  const backgroundColors = values.map((v) => {
     if (v === 0) return 'rgba(62,223,37,0.08)';
     const ratio = v / maxVal;
     if (ratio >= 0.85) return '#FF4500';
@@ -311,9 +215,31 @@ function speciesChartData(group, year) {
   });
 
   return {
-    labels: SPECIES_DATA.labels,
+    labels: ICMBIO_GROUPS.labels,
     datasets: [{
-      label: 'Resgates',
+      label: 'Espécies',
+      data: values,
+      backgroundColor: backgroundColors,
+      borderRadius: 6,
+      borderSkipped: false,
+      borderWidth: 0,
+    }]
+  };
+}
+
+function biomesChartData(cat) {
+  const values = ICMBIO_BIOMES[cat] || ICMBIO_BIOMES['ALL'];
+  const maxVal  = Math.max(...values);
+
+  const backgroundColors = ICMBIO_BIOMES.colors.map((color, i) => {
+    const ratio = values[i] / maxVal;
+    return ratio >= 0.8 ? color : color + 'CC';
+  });
+
+  return {
+    labels: ICMBIO_BIOMES.labels,
+    datasets: [{
+      label: 'Espécies ameaçadas',
       data: values,
       backgroundColor: backgroundColors,
       borderRadius: 6,

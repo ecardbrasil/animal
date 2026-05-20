@@ -149,6 +149,17 @@
   padding-block: var(--space-20);
 }
 
+.hero-photo-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Panthera_onca_in_Brazil.jpg/1280px-Panthera_onca_in_Brazil.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0.18;
+  filter: saturate(0.6);
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -177,6 +188,29 @@
   text-align: center;
   position: relative;
   z-index: 2;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(200,232,187,0.6);
+  margin-bottom: var(--space-6);
+}
+
+.hero-subheadline {
+  font-size: clamp(var(--text-base), 2vw, var(--text-lg));
+  color: rgba(200,232,187,0.75);
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: var(--space-8);
+  line-height: 1.7;
 }
 
 .hero-logo {
@@ -410,8 +444,8 @@
 
 .animal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-5);
 }
 
 .no-results {
@@ -428,6 +462,15 @@
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
   margin-bottom: var(--space-10);
+}
+
+.kpi-row--salve {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.kpi-row--groups {
+  grid-template-columns: repeat(5, 1fr);
+  margin-bottom: var(--space-8);
 }
 
 .chart-controls {
