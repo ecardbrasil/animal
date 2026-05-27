@@ -742,11 +742,24 @@
   box-shadow: var(--glow-green);
 }
 
+.professor-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid rgba(62,223,37,0.4);
+  box-shadow: 0 0 20px rgba(62,223,37,0.15);
+  display: block;
+  margin: 0 auto var(--space-5);
+}
+
 .disciplina-card-header,
 .professor-header {
   margin-bottom: var(--space-8);
   padding-bottom: var(--space-8);
   border-bottom: 1px solid rgba(62,223,37,0.1);
+  text-align: center;
 }
 
 .disciplina-card-header h3,
