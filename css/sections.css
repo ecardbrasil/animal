@@ -627,6 +627,160 @@
 }
 
 /* ============================================
+   DISCIPLINA E PROFESSOR SECTION
+   ============================================ */
+.disciplina-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .disciplina-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.disciplina-card,
+.professor-card {
+  background: rgba(62,223,37,0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(62,223,37,0.15);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.disciplina-card:hover,
+.professor-card:hover {
+  border-color: rgba(62,223,37,0.3);
+  box-shadow: var(--glow-green);
+}
+
+.disciplina-card-header,
+.professor-header {
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid rgba(62,223,37,0.1);
+}
+
+.disciplina-card-header h3,
+.professor-header h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.disciplina-subtitle,
+.professor-role {
+  font-size: var(--text-base);
+  color: rgba(200,232,187,0.7);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.disciplina-details {
+  margin-bottom: var(--space-8);
+  padding: var(--space-6);
+  background: rgba(62,223,37,0.05);
+  border-radius: var(--radius-lg);
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(62,223,37,0.08);
+  font-size: var(--text-sm);
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.detail-item span:last-child {
+  color: rgba(200,232,187,0.85);
+  text-align: right;
+}
+
+.disciplina-section {
+  margin-bottom: var(--space-8);
+}
+
+.disciplina-section h4,
+.professor-bio h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.disciplina-section p,
+.professor-bio p {
+  color: rgba(200,232,187,0.8);
+  line-height: 1.7;
+  margin-bottom: var(--space-3);
+}
+
+.disciplina-topics,
+.professor-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.disciplina-topics li,
+.professor-list li {
+  color: rgba(200,232,187,0.75);
+  padding-left: var(--space-4);
+  position: relative;
+  line-height: 1.6;
+}
+
+.disciplina-topics li::before,
+.professor-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.professor-bio {
+  margin-bottom: var(--space-6);
+}
+
+.professor-bio:last-of-type {
+  margin-bottom: var(--space-8);
+  flex-grow: 1;
+}
+
+.professor-cta {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(62,223,37,0.1);
+}
+
+/* ============================================
    SCROLL ANIMATIONS
    ============================================ */
 .fade-up {
