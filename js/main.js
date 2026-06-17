@@ -2,9 +2,11 @@ import { initEmergency } from './modules/emergency.js';
 import { initLibrary }   from './modules/library.js';
 import { initCharts }    from './modules/charts.js';
 import { initMap }       from './modules/map.js';
+import { initTheme }     from './modules/theme.js';
 import { animateCounter } from './utils/helpers.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   initEmergency();
   initMobileNav();
   initHeaderScroll();
@@ -28,7 +30,6 @@ function initMobileNav() {
     toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu de navegação');
   });
 
-  // Close on nav link click (mobile)
   nav.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('is-open');
@@ -36,7 +37,6 @@ function initMobileNav() {
     });
   });
 
-  // Close on outside click
   document.addEventListener('click', (e) => {
     if (!nav.contains(e.target) && !toggle.contains(e.target)) {
       nav.classList.remove('is-open');
@@ -80,13 +80,11 @@ function initAccordion() {
     btn.addEventListener('click', () => {
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
-      // Collapse all
       document.querySelectorAll('.accordion-trigger').forEach(b => {
         b.setAttribute('aria-expanded', 'false');
         b.nextElementSibling?.classList.remove('open');
       });
 
-      // Open clicked if was closed
       if (!isOpen) {
         btn.setAttribute('aria-expanded', 'true');
         btn.nextElementSibling?.classList.add('open');
@@ -122,7 +120,6 @@ function initKPICounters() {
 
   document.querySelectorAll('.kpi-value').forEach(el => observer.observe(el));
 
-  // Big 38M counter in crise section
   const criseCounter = document.getElementById('crise-counter-38m');
   if (criseCounter) {
     const criseObserver = new IntersectionObserver((entries) => {
@@ -146,7 +143,6 @@ function initLazyDataSection() {
   const observer = new IntersectionObserver((entries) => {
     if (!entries[0].isIntersecting) return;
 
-    // Retry until CDN scripts are loaded
     const tryInit = () => {
       if (!chartsLoaded && typeof Chart !== 'undefined') {
         initCharts();
